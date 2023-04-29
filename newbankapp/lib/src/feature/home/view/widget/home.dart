@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
+import 'package:newbankapp/src/component/card_container.dart';
 import 'package:newbankapp/src/component/newbank_app_bar.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
@@ -11,99 +12,199 @@ class UserHome extends StatefulWidget {
 }
 
 class _UserHomeState extends State<UserHome> {
-  ValueNotifier<bool> isSelected = ValueNotifier(false);
+  ValueNotifier<bool> eyeListener = ValueNotifier(false);
+  ValueNotifier<bool> pigListener = ValueNotifier(false);
+  double value = 0.0;
+  TextEditingController valueController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    double user_balance = 0;
-    bool hidden_item = true;
-    String showed_value = user_balance.toStringAsFixed(2);
-    String hidden_value = "••••";
-
+    double userBalance = 0;
+    String showedValue = userBalance.toStringAsFixed(2);
+    String hiddenValue = "••••";
+    String showedVaultValue = (value).toStringAsFixed(2);
     return Scaffold(
       appBar: _newbankBar("app_name".i18n()),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Container(
-          //color: Colors.amber,
-          height: 120,
-          width: 420,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.indigo[200],
-            shape: BoxShape.rectangle,
-          ),
-          child: Padding(
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          // CARD DE SALDO EM CONTA CORRENTE
+          Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Column(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CardContainer(
+                child: Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Saldo em conta corrente: ",
-                        style: TextStyle(
-                          // fontFamily: "Cormorant",
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                        ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Saldo em conta corrente: ",
+                                style: TextStyle(
+                                  // fontFamily: "Cormorant",
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24,
+                                  overflow: TextOverflow.clip,
+                                ),
+                              ),
+                            ),
+                          ),
+                          ValueListenableBuilder(
+                            valueListenable: eyeListener,
+                            builder: (BuildContext context, bool selected, _) =>
+                                IconButton(
+                              iconSize: 36,
+                              onPressed: () {
+                                setState(() {
+                                  eyeListener.value = !eyeListener.value;
+                                });
+                              },
+                              icon: AnimatedSwitcher(
+                                duration: const Duration(milliseconds: 300),
+                                child: selected
+                                    ? const Icon(Icons.remove_red_eye,
+                                        key: ValueKey("iconA"))
+                                    : const Icon(Icons.remove_red_eye_outlined,
+                                        key: ValueKey("iconB")),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    // Text(
-                    //   "R\$: $final_value",
-                    //   style: TextStyle(
-                    //     fontFamily: "Cormorant",
-                    //     fontWeight: FontWeight.bold,
-                    //     fontSize: 24,
-                    //   ),
                     AnimatedCrossFade(
                       firstChild: Text(
-                        "R\$$showed_value",
-                        style: TextStyle(
+                        "R\$$showedValue",
+                        style: const TextStyle(
                           // fontFamily: "Cormorant",
                           fontWeight: FontWeight.bold,
                           fontSize: 32,
                         ),
                       ),
                       secondChild: Text(
-                        "$hidden_value",
-                        style: TextStyle(
+                        hiddenValue,
+                        style: const TextStyle(
                           // fontFamily: "Cormorant",
                           fontWeight: FontWeight.bold,
                           fontSize: 42,
                         ),
                       ),
-                      crossFadeState: isSelected.value
+                      crossFadeState: eyeListener.value
                           ? CrossFadeState.showFirst
                           : CrossFadeState.showSecond,
-                      duration: Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 300),
                     ),
                   ],
                 ),
-                ValueListenableBuilder(
-                  valueListenable: isSelected,
-                  builder: (BuildContext context, bool selected, _) =>
-                      IconButton(
-                    iconSize: 36,
-                    onPressed: () {
-                      setState(() {
-                        isSelected.value = !isSelected.value;
-                      });
-                    },
-                    icon: AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 300),
-                      child: selected
-                          ? const Icon(Icons.remove_red_eye,
-                              key: ValueKey("iconA"))
-                          : const Icon(Icons.remove_red_eye_outlined,
-                              key: ValueKey("iconB")),
+              ),
+            ),
+          ),
+          //CARD DE VALOR GUARDADO
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CardContainer(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Valor Guardado Atual:",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "R\$ $showedVaultValue",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CardContainer(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Guardar dinheiro",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 16, right: 16),
+                                child: TextFormField(
+                                  controller: valueController,
+                                  decoration: const InputDecoration(
+                                    labelStyle: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                    hintText: ("Exemplo: 42.50"),
+                                    hintStyle: TextStyle(color: Colors.black54),
+                                    labelText:
+                                        'Digite o valor que será guardado',
+                                  ),
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  cursorColor: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  print(valueController.text);
+                  print(value);
+                  setState(() {
+                    value = double.parse(valueController.text) + value;
+                  });
+                },
+                child: Text(
+                  "Guardar",
+                ),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.indigo,
+                ),
+              ),
+            ],
           ),
-        ),
+        ],
       ),
     );
   }
@@ -119,13 +220,13 @@ class _UserHomeState extends State<UserHome> {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.grey[400],
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: Svg("lib/assets/images/user_placeholder.svg"),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Text(
               "Olá, 'USER_NAME'",
               style: TextStyle(
