@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 
-import '../../../../component/newbank_app_bar.dart';
-
 class UserTransations extends StatelessWidget {
   const UserTransations({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _newbankBar("app_name".i18n()),
+      appBar: _newbankBar(),
       backgroundColor: Colors.white30,
       body: Center(
         child: Text(
@@ -22,21 +20,19 @@ class UserTransations extends StatelessWidget {
     );
   }
 
-  PreferredSizeWidget _newbankBar(String text) {
-    return NewBankAppBar(
-      title: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "NW",
-            style: TextStyle(
-              fontFamily: "Cormorant",
-              fontWeight: FontWeight.bold,
-              fontSize: 42,
-            ),
+  PreferredSizeWidget _newbankBar() {
+    return AppBar(
+      title: const Center(
+        child: Text(
+          "NW",
+          style: TextStyle(
+            fontFamily: "Cormorant",
+            fontWeight: FontWeight.bold,
+            fontSize: 42,
           ),
         ),
       ),
+      backgroundColor: Colors.indigo,
       elevation: 5,
     );
   }

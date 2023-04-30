@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:localization/localization.dart';
-import 'package:newbankapp/src/component/newbank_app_bar.dart';
 
 class UserCards extends StatelessWidget {
   const UserCards({super.key});
@@ -9,7 +8,7 @@ class UserCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _newbankBar("app_name".i18n()),
+      appBar: _newbankBar(),
       backgroundColor: Colors.white30,
       body: Center(
         child: Text(
@@ -22,21 +21,19 @@ class UserCards extends StatelessWidget {
     );
   }
 
-  PreferredSizeWidget _newbankBar(String text) {
-    return NewBankAppBar(
-      title: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "NW",
-            style: TextStyle(
-              fontFamily: "Cormorant",
-              fontWeight: FontWeight.bold,
-              fontSize: 42,
-            ),
+  PreferredSizeWidget _newbankBar() {
+    return AppBar(
+      title: const Center(
+        child: Text(
+          "NW",
+          style: TextStyle(
+            fontFamily: "Cormorant",
+            fontWeight: FontWeight.bold,
+            fontSize: 42,
           ),
         ),
       ),
+      backgroundColor: Colors.indigo,
       elevation: 5,
     );
   }
