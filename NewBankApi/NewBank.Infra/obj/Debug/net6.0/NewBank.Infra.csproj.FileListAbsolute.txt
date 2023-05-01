@@ -1,0 +1,15 @@
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\bin\Debug\net6.0\NewBank.Infra.deps.json
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\bin\Debug\net6.0\NewBank.Infra.dll
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\bin\Debug\net6.0\NewBank.Infra.pdb
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\bin\Debug\net6.0\NewBank.Domain.dll
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\bin\Debug\net6.0\NewBank.Domain.pdb
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\NewBank.Infra.csproj.AssemblyReference.cache
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\NewBank.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\NewBank.Infra.AssemblyInfoInputs.cache
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\NewBank.Infra.AssemblyInfo.cs
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\NewBank.Infra.csproj.CoreCompileInputs.cache
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\NewBank.Infra.csproj.CopyComplete
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\NewBank.Infra.dll
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\refint\NewBank.Infra.dll
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\NewBank.Infra.pdb
+C:\dev\iesb\flutter-iesb\NewBankApi\NewBank.Infra\obj\Debug\net6.0\ref\NewBank.Infra.dll
