@@ -19,7 +19,7 @@ class Input extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white,
                 fontSize: 25,
                 fontFamily: "Big Shoulders Display"),

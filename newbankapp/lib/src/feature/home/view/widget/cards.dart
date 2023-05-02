@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
-import 'package:localization/localization.dart';
 
 class UserCards extends StatelessWidget {
   const UserCards({super.key});
@@ -10,7 +8,7 @@ class UserCards extends StatelessWidget {
     return Scaffold(
       appBar: _newbankBar(),
       backgroundColor: Colors.white30,
-      body: Center(
+      body: const Center(
         child: Text(
           'Cards',
           style: TextStyle(
@@ -23,7 +21,7 @@ class UserCards extends StatelessWidget {
 
   PreferredSizeWidget _newbankBar() {
     return AppBar(
-      title: Text(
+      title: const Text(
         "NW",
         style: TextStyle(
           fontFamily: "Cormorant",

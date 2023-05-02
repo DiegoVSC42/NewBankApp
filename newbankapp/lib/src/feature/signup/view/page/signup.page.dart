@@ -2,22 +2,33 @@ import 'package:flutter/material.dart';
 
 import '../../../login/view/widget/input.widget.dart';
 
-class SignUp extends StatelessWidget {
-  var firstNameTec = TextEditingController();
-  var lastNameTec = TextEditingController();
-  var usernameTec = TextEditingController();
-  var cpfTec = TextEditingController();
-  var emailTec = TextEditingController();
-  var phoneTec = TextEditingController();
-  var passwordTec = TextEditingController();
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
-  SignUp({super.key});
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  var firstNameTec = TextEditingController();
+
+  var lastNameTec = TextEditingController();
+
+  var usernameTec = TextEditingController();
+
+  var cpfTec = TextEditingController();
+
+  var emailTec = TextEditingController();
+
+  var phoneTec = TextEditingController();
+
+  var passwordTec = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "NW",
           style: TextStyle(
             fontFamily: "Cormorant",
@@ -44,7 +55,7 @@ class SignUp extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       "Sign Up",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -104,12 +115,12 @@ class SignUp extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {},
-                      child: Text(
-                        "Registrar",
-                      ),
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: Colors.indigo,
+                      ),
+                      child: const Text(
+                        "Registrar",
                       ),
                     ),
                     // LoginButton(

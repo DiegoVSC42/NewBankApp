@@ -3,11 +3,17 @@ import 'package:newbankapp/src/feature/login/view/widget/input.widget.dart';
 
 import '../widget/login_button.widget.dart';
 
-class Login extends StatelessWidget {
-  var usernameCtrl = TextEditingController();
-  var passwordCtrl = TextEditingController();
+class Login extends StatefulWidget {
+  const Login({super.key});
 
-  Login({super.key});
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  var usernameCtrl = TextEditingController();
+
+  var passwordCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,7 @@ class Login extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  Text(
+                  const Text(
                     "Login",
                     textAlign: TextAlign.center,
                     style: TextStyle(

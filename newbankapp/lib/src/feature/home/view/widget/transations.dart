@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:localization/localization.dart';
 
 class UserTransations extends StatelessWidget {
   const UserTransations({super.key});
@@ -9,7 +8,7 @@ class UserTransations extends StatelessWidget {
     return Scaffold(
       appBar: _newbankBar(),
       backgroundColor: Colors.white30,
-      body: Center(
+      body: const Center(
         child: Text(
           'Transations',
           style: TextStyle(

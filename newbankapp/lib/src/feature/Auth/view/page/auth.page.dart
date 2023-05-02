@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:newbankapp/src/feature/login/view/page/login.page.dart';
-import 'package:newbankapp/src/feature/login/view/widget/input.widget.dart';
 import 'package:newbankapp/src/feature/signup/view/page/signup.page.dart';
 
 class Auth extends StatelessWidget {
-  var AuthnameCtrl = TextEditingController();
-  var passwordCtrl = TextEditingController();
-
-  Auth({super.key});
+  const Auth({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +35,7 @@ class Auth extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(children: [
-                Text(
+                const Text(
                   "Ja possui cadastro ?",
                   style: TextStyle(
                     color: Colors.white,
@@ -54,7 +50,7 @@ class Auth extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Login()),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     "Login",
                   ),
                   style: ElevatedButton.styleFrom(
@@ -66,8 +62,8 @@ class Auth extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
+                const Padding(
+                  padding: EdgeInsets.only(top: 16.0),
                   child: Text(
                     "Criar nova conta",
                     style: TextStyle(
@@ -84,16 +80,16 @@ class Auth extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => SignUp()),
                     );
                   },
-                  child: Text(
-                    "SignUp",
-                  ),
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.indigo,
-                    fixedSize: Size(
+                    fixedSize: const Size(
                       200,
                       25,
                     ),
+                  ),
+                  child: const Text(
+                    "SignUp",
                   ),
                 ),
               ]),

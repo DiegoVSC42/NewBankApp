@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:newbankapp/src/feature/Auth/view/page/auth.page.dart';
-import 'package:newbankapp/src/feature/home/view/page/homepage.dart';
-import 'package:newbankapp/src/feature/signup/view/page/signup.page.dart';
-
-import '../../src/feature/login/view/page/login.page.dart';
 
 // StatefulWidget
 class OnboardingScreen extends StatefulWidget {
@@ -73,37 +69,48 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
         PageViewModel(
           title: "",
-          body: " Faça compras online com seu cartão digital.",
-          image: _buildImage('imagem-3.png'),
-          // Barra do Vamos Começar
-          footer: Padding(
-            // Aumenta a barra (Horizontal)
-            padding: const EdgeInsets.only(left: 40.0, right: 40.0),
-            //
-            child: ElevatedButton(
-              onPressed: () {
-                openHomeScreen(context);
-              },
-              // Aplica um stilo a Barra
-              style: ElevatedButton.styleFrom(
-                // Elevado
-                minimumSize:
-                    const Size.fromHeight(80), //Aumenta a barra (Vertical)
-                backgroundColor: Colors.indigo, // Muda a cor
-                //Aplica o estido de borda da barra
-                shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(10.0), //Quão redondo aplica
+          bodyWidget: Column(
+            children: [
+              const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    " Faça compras online com seu cartão digital.",
+                    style: TextStyle(
+                      color: Colors.indigo,
+                      fontSize: 30,
+                    ),
+                  ),
                 ),
               ),
-              //Quual texto colocana barra
-              child: const Text(
-                'VAMOS COMEÇAR !',
-                style: TextStyle(
-                    color: Colors.white, fontSize: 15.5), //Cor do texto
+              ElevatedButton(
+                onPressed: () {
+                  openAuthScreen(context);
+                },
+                // Aplica um stilo a Barra
+                style: ElevatedButton.styleFrom(
+                  // Elevado
+                  minimumSize:
+                      const Size.fromHeight(80), //Aumenta a barra (Vertical)
+                  backgroundColor: Colors.indigo, // Muda a cor
+                  //Aplica o estido de borda da barra
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(10.0), //Quão redondo aplica
+                  ),
+                ),
+                //Quual texto colocana barra
+                child: const Text(
+                  'VAMOS COMEÇAR !',
+                  style: TextStyle(
+                      color: Colors.white, fontSize: 15.5), //Cor do texto
+                ),
               ),
-            ),
+            ],
           ),
+          image: _buildImage('imagem-3.png'),
+          // Barra do Vamos Começar
+
           decoration: pageDecoration,
         ),
       ],
@@ -143,7 +150,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 }
 
 //Criar uma função para abrir a tela inicial, mesma função para chamar no botão pular
-void openHomeScreen(BuildContext context) {
+void openAuthScreen(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => Auth()),
