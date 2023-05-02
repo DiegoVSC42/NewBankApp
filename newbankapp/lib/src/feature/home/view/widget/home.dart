@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:newbankapp/src/component/card_container.dart';
+import 'package:newbankapp/src/common/card_container.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 class UserHome extends StatefulWidget {

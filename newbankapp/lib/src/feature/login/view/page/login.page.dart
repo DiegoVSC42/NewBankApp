@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:newbankapp/src/feature/login/view/widget/input.widget.dart';
 
+import '../widget/login_button.widget.dart';
+
 class Login extends StatelessWidget {
   var usernameCtrl = TextEditingController();
   var passwordCtrl = TextEditingController();
@@ -16,6 +18,7 @@ class Login extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.all(30),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.8),
                 borderRadius: BorderRadius.circular(25),
@@ -23,29 +26,36 @@ class Login extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 100,
+                    height: 50,
                   ),
                   Text(
                     "Login",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: 40,
+                        fontSize: 35,
                         fontFamily: "Big Shoulders Display"),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
+                  Input(
+                    label: "Username",
+                    ctrl: usernameCtrl,
+                  ),
+                  Input(
+                    label: "Password",
+                    ctrl: passwordCtrl,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  LoginButton(
+                    username: usernameCtrl.text,
+                    password: passwordCtrl.text,
+                  )
                 ],
               ),
-            ),
-            Input(
-              label: "Username",
-              ctrl: usernameCtrl,
-            ),
-            Input(
-              label: "Password",
-              ctrl: passwordCtrl,
             ),
           ],
         ),

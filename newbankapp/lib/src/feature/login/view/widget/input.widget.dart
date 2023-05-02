@@ -19,8 +19,8 @@ class Input extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Text(
             label,
-            style: const TextStyle(
-                color: Colors.white,
+            style: TextStyle(
+                color: Theme.of(context).primaryColor,
                 fontSize: 25,
                 fontFamily: "Big Shoulders Display"),
           ),
@@ -37,7 +37,9 @@ class Input extends StatelessWidget {
                 fontSize: 20,
                 fontFamily: "Big Shoulders Display"),
             decoration: const InputDecoration(
-              border: InputBorder.none,
+              border: UnderlineInputBorder(
+                borderSide: BorderSide(width: 1, style: BorderStyle.solid),
+              ),
             ),
           ),
         )
