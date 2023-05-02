@@ -22,16 +22,15 @@ class UserTransations extends StatelessWidget {
 
   PreferredSizeWidget _newbankBar() {
     return AppBar(
-      title: const Center(
-        child: Text(
-          "NW",
-          style: TextStyle(
-            fontFamily: "Cormorant",
-            fontWeight: FontWeight.bold,
-            fontSize: 42,
-          ),
+      title: const Text(
+        "NW",
+        style: TextStyle(
+          fontFamily: "Cormorant",
+          fontWeight: FontWeight.bold,
+          fontSize: 42,
         ),
       ),
+      centerTitle: true,
       backgroundColor: Colors.indigo,
       elevation: 5,
       automaticallyImplyLeading: false,

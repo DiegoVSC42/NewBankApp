@@ -43,16 +43,15 @@ class _UserHomeState extends State<UserHome> {
   //BARRA SUPERIOR
   PreferredSizeWidget _newbankBar() {
     return AppBar(
-      title: const Center(
-        child: Text(
-          "NW",
-          style: TextStyle(
-            fontFamily: "Cormorant",
-            fontWeight: FontWeight.bold,
-            fontSize: 42,
-          ),
+      title: const Text(
+        "NW",
+        style: TextStyle(
+          fontFamily: "Cormorant",
+          fontWeight: FontWeight.bold,
+          fontSize: 42,
         ),
       ),
+      centerTitle: true,
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(50),
         child: Padding(

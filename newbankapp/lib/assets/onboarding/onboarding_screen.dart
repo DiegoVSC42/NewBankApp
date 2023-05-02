@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:newbankapp/src/feature/home/view/page/homepage.dart';
+import 'package:newbankapp/src/feature/signup/view/page/signup.page.dart';
+
+import '../../src/feature/login/view/page/login.page.dart';
 
 // StatefulWidget
 class OnboardingScreen extends StatefulWidget {
@@ -142,6 +145,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 void openHomeScreen(BuildContext context) {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const HomePage()),
+    MaterialPageRoute(builder: (context) => Login()),
   );
 }

@@ -46,7 +46,12 @@ class _LoginButtonState extends State<LoginButton> {
           ),
         ),
         onPressed: login,
-        child: const Text("Login"),
+        child: const Text(
+          "Login",
+          style: TextStyle(
+            color: Colors.indigo,
+          ),
+        ),
       ),
     );
   }
