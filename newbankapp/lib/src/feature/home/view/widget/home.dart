@@ -21,7 +21,6 @@ class _UserHomeState extends State<UserHome> {
 
   @override
   Widget build(BuildContext context) {
-    print("Rebuild home");
     String showedVaultValue = (_vaultValue).toStringAsFixed(2);
     return Scaffold(
       appBar: _newbankBar(),
@@ -91,6 +90,7 @@ class _UserHomeState extends State<UserHome> {
       ),
       backgroundColor: Colors.indigo,
       elevation: 5,
+      automaticallyImplyLeading: false,
     );
   }
 
@@ -267,6 +267,7 @@ class _UserHomeState extends State<UserHome> {
     );
   }
 
+  //CARD PARA RESGATAR VALOR
   Widget _retrieveValue(double userBalance) {
     return Column(
       children: [
@@ -361,12 +362,14 @@ class _UserHomeState extends State<UserHome> {
     );
   }
 
+  //MÉTODO PARA ATUALIZAR O SALDO DA CONTA
   void _updateBalance(double value) {
     setState(() {
       _userBalance += value;
     });
   }
 
+  //MÉTODO PARA ATUALIZAR O SALDO GUARDADO
   void _updateVaultValue(double value) {
     setState(() {
       _vaultValue += value;

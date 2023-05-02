@@ -34,6 +34,7 @@ class UserTransations extends StatelessWidget {
       ),
       backgroundColor: Colors.indigo,
       elevation: 5,
+      automaticallyImplyLeading: false,
     );
   }
 }

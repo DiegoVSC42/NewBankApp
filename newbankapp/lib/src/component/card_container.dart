@@ -6,7 +6,7 @@ class CardContainer extends StatelessWidget {
   final BoxDecoration decoration;
   final Widget child;
 
-  CardContainer({
+  const CardContainer({
     this.height = 120,
     this.width = 420,
     required this.child,
