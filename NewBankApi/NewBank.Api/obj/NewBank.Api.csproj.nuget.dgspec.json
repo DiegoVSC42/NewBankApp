@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj": {}
+    "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj": {}
   },
   "projects": {
-    "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj": {
+    "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj",
+        "projectUniqueName": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj",
         "projectName": "NewBank.Api",
-        "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj",
+        "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj",
         "packagesPath": "C:\\Users\\Vitor Suzarte\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Api\\obj\\",
+        "outputPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vitor Suzarte\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -30,11 +30,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj": {
-                "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj"
+              "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj": {
+                "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj"
               },
-              "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj": {
-                "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj"
+              "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj": {
+                "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj"
               }
             }
           }
@@ -93,14 +93,14 @@
         }
       }
     },
-    "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj": {
+    "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj",
+        "projectUniqueName": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj",
         "projectName": "NewBank.Domain",
-        "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj",
+        "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj",
         "packagesPath": "C:\\Users\\Vitor Suzarte\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\obj\\",
+        "outputPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vitor Suzarte\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -168,14 +168,14 @@
         }
       }
     },
-    "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj": {
+    "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj",
+        "projectUniqueName": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj",
         "projectName": "NewBank.Infra",
-        "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj",
+        "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj",
         "packagesPath": "C:\\Users\\Vitor Suzarte\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Infra\\obj\\",
+        "outputPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vitor Suzarte\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -194,8 +194,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj": {
-                "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj"
+              "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj": {
+                "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj"
               }
             }
           }

@@ -635,11 +635,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj",
+      "projectUniqueName": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj",
       "projectName": "NewBank.Domain",
-      "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj",
+      "projectPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\NewBank.Domain.csproj",
       "packagesPath": "C:\\Users\\Vitor Suzarte\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Domain\\obj\\",
+      "outputPath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vitor Suzarte\\AppData\\Roaming\\NuGet\\NuGet.Config",

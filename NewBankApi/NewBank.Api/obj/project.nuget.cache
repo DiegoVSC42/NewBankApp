@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wXNmpgKdcPKrkULDH0btTNa6Z01jbBAeBluH/iRCIS5SdjsBh8A2gOJ+ogy4Q51gIQrSU49tBIuQoxjtA5CaNw==",
+  "dgSpecHash": "puoAMC5DRzCU6ybW+fun4JXjbdaLuUvfjW2KxykLJkjDWDwSF0KdbKQRzjXJzNSLERtIR2ZLFsbAyPPjIeDusg==",
   "success": true,
-  "projectFilePath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj",
+  "projectFilePath": "C:\\dev\\iesb\\flutter-iesb\\NewBankApp\\NewBankApi\\NewBank.Api\\NewBank.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vitor Suzarte\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Vitor Suzarte\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.2\\microsoft.aspnetcore.authentication.jwtbearer.6.0.2.nupkg.sha512",
