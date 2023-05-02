@@ -17,16 +17,15 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            "NW",
-            style: TextStyle(
-              fontFamily: "Cormorant",
-              fontWeight: FontWeight.bold,
-              fontSize: 42,
-            ),
+        title: Text(
+          "NW",
+          style: TextStyle(
+            fontFamily: "Cormorant",
+            fontWeight: FontWeight.bold,
+            fontSize: 42,
           ),
         ),
+        centerTitle: true,
         backgroundColor: Colors.indigo,
         elevation: 5,
       ),
@@ -50,7 +49,7 @@ class SignUp extends StatelessWidget {
                     "Sign Up",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Theme.of(context).primaryColor,
+                        color: Colors.white,
                         fontSize: 35,
                         fontFamily: "Big Shoulders Display"),
                   ),
@@ -58,7 +57,7 @@ class SignUp extends StatelessWidget {
                     height: 20,
                   ),
                   Input(
-                    label: "Fisrtname",
+                    label: "Firstname",
                     ctrl: firstNameTec,
                   ),
                   const SizedBox(

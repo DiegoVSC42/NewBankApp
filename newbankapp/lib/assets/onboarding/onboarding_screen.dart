@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:newbankapp/src/feature/Auth/view/page/auth.page.dart';
 import 'package:newbankapp/src/feature/home/view/page/homepage.dart';
 import 'package:newbankapp/src/feature/signup/view/page/signup.page.dart';
 
@@ -145,6 +146,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 void openHomeScreen(BuildContext context) {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => Login()),
+    MaterialPageRoute(builder: (context) => Auth()),
   );
 }
