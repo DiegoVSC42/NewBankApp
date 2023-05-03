@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newbankapp/src/feature/home/view/page/homepage.dart';
 import 'package:newbankapp/src/feature/login/view/page/login.page.dart';
 import 'package:newbankapp/src/feature/signup/view/page/signup.page.dart';
 
@@ -78,7 +77,7 @@ class Auth extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => SignUp()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
