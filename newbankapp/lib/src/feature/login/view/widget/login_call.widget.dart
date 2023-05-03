@@ -12,10 +12,10 @@ class LoginButton extends StatefulWidget {
   });
 
   @override
-  State<LoginButton> createState() => _LoginButtonState();
+  State<LoginButton> createState() => _LoginCallState();
 }
 
-class _LoginButtonState extends State<LoginButton> {
+class _LoginCallState extends State<LoginButton> {
   void login() async {
     print(widget.username);
     print(widget.password);
@@ -33,26 +33,6 @@ class _LoginButtonState extends State<LoginButton> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
-      height: 40,
-      child: TextButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-          ),
-        ),
-        onPressed: login,
-        child: const Text(
-          "Login",
-          style: TextStyle(
-            color: Colors.indigo,
-          ),
-        ),
-      ),
-    );
+    return Text("");
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newbankapp/src/feature/login/view/widget/input.widget.dart';
 
-import '../widget/login_button.widget.dart';
+import '../widget/login_call.widget.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -12,7 +12,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   var usernameCtrl = TextEditingController();
-
+  var username = "";
+  var password = "";
   var passwordCtrl = TextEditingController();
 
   @override
@@ -44,16 +45,16 @@ class _LoginState extends State<Login> {
               ),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  const Text(
-                    "Login",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 35,
-                        fontFamily: "Big Shoulders Display"),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      "Login",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 35,
+                          fontFamily: "Big Shoulders Display"),
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
@@ -69,10 +70,37 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20,
                   ),
-                  LoginButton(
-                    username: usernameCtrl.text,
-                    password: passwordCtrl.text,
-                  )
+                  // LoginButton(
+                  //   username: usernameCtrl.text,
+                  //   password: passwordCtrl.text,
+                  // )
+                  SizedBox(
+                    width: 200,
+                    height: 40,
+                    child: TextButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        _updateUser(usernameCtrl.text, passwordCtrl.text);
+                        print(username);
+                        print(password);
+                      },
+                      child: const Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Colors.indigo,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -80,5 +108,12 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  void _updateUser(String usernameR, String passwordR) {
+    setState(() {
+      username = usernameR;
+      password = passwordR;
+    });
   }
 }
