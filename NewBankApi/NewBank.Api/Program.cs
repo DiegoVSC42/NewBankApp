@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using NewBank.Domain.Repositories;
-using NewBank.Domain.Services;
-using NewBank.Domain.Services.Interfaces;
-using NewBank.Infra;
-using NewBank.Infra.Repositories;
-using Swashbuckle.AspNetCore.Filters;
 using System.Text;
+using Swashbuckle.AspNetCore.Filters;
+using NewBank.Domain.Services;
+using NewBank.Domain.Repositories;
+using NewBank.Infra.Repositories;
+using NewBank.Infra;
+using NewBank.Domain.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +31,7 @@ builder.Services.AddSwaggerGen(options =>
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
-//THis is how we can add Authentication Scheme
+//This is how we can add Authentication Scheme
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -61,7 +61,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//THis is how you add Middleware and it should always be above Authorization
+//This is how you add Middleware and it should always be above Authorization
 app.UseAuthentication();
 
 app.UseAuthorization();
