@@ -21,78 +21,86 @@ class Auth extends StatelessWidget {
         backgroundColor: Colors.indigo,
         elevation: 5,
       ),
-      body: Container(
-        height: 250,
-        margin: const EdgeInsets.all(30),
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: Colors.indigo.withOpacity(0.8),
-          borderRadius: BorderRadius.circular(25),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(children: [
-                const Text(
-                  "Ja possui cadastro ?",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Login()),
-                    );
-                  },
-                  child: const Text(
-                    "Login",
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.indigo,
-                    fixedSize: Size(
-                      200,
-                      25,
+      body: Center(
+        child: Container(
+          height: 320,
+          margin: const EdgeInsets.all(30),
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.indigo.withOpacity(0.8),
+            borderRadius: BorderRadius.circular(25),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Column(children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16.0),
+                      child: const Text(
+                        "Ja possui cadastro ?",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 16.0),
-                  child: Text(
-                    "Criar nova conta",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Login()),
+                        );
+                      },
+                      child: const Text(
+                        "Login",
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.indigo,
+                        fixedSize: Size(
+                          250,
+                          25,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUp()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.indigo,
-                    fixedSize: const Size(
-                      200,
-                      25,
+                    const Padding(
+                      padding: EdgeInsets.only(top: 16.0),
+                      child: Text(
+                        "Criar nova conta",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                  ),
-                  child: const Text(
-                    "SignUp",
-                  ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUp()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.indigo,
+                        fixedSize: const Size(
+                          250,
+                          25,
+                        ),
+                      ),
+                      child: const Text(
+                        "SignUp",
+                      ),
+                    ),
+                  ]),
                 ),
-              ]),
+              ),
             ),
           ),
         ),
