@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newbankapp/src/component/newbank_bar.dart';
 import 'package:newbankapp/src/feature/login/view/widget/input.widget.dart';
 import 'package:http/http.dart' as http;
 import '../widget/login_call.widget.dart';
@@ -19,19 +20,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "NW",
-          style: TextStyle(
-            fontFamily: "Cormorant",
-            fontWeight: FontWeight.bold,
-            fontSize: 42,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.indigo,
-        elevation: 5,
-      ),
+      appBar: NewBankBar(),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Center(

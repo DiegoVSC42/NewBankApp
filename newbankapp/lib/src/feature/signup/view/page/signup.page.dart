@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newbankapp/src/component/newbank_bar.dart';
 
 import '../../../login/view/widget/input.widget.dart';
 
@@ -27,19 +28,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "NW",
-          style: TextStyle(
-            fontFamily: "Cormorant",
-            fontWeight: FontWeight.bold,
-            fontSize: 42,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.indigo,
-        elevation: 5,
-      ),
+      appBar: NewBankBar(),
       body: Container(
         color: Colors.white,
         child: ListView(

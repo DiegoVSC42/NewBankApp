@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:newbankapp/src/component/newbank_bar.dart';
+import 'package:newbankapp/src/feature/home/view/page/homepage.dart';
 import 'package:newbankapp/src/feature/login/view/page/login.page.dart';
 import 'package:newbankapp/src/feature/signup/view/page/signup.page.dart';
 
@@ -8,19 +10,7 @@ class Auth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "NW",
-          style: TextStyle(
-            fontFamily: "Cormorant",
-            fontWeight: FontWeight.bold,
-            fontSize: 42,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.indigo,
-        elevation: 5,
-      ),
+      appBar: NewBankBar(),
       body: Center(
         child: Container(
           height: 320,
@@ -105,6 +95,14 @@ class Auth extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.indigo,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          }),
     );
   }
 }

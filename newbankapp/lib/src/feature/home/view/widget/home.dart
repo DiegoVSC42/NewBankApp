@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:newbankapp/src/common/card_container.dart';
+import 'package:newbankapp/src/component/card_container.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
+
+import '../../../../component/newbank_bar.dart';
 
 class UserHome extends StatefulWidget {
   const UserHome({super.key});
@@ -41,7 +43,7 @@ class _UserHomeState extends State<UserHome> {
 
   //BARRA SUPERIOR
   PreferredSizeWidget _newbankBar() {
-    return AppBar(
+    return NewBankBar(
       title: const Text(
         "NW",
         style: TextStyle(
@@ -88,7 +90,7 @@ class _UserHomeState extends State<UserHome> {
       ),
       backgroundColor: Colors.indigo,
       elevation: 5,
-      automaticallyImplyLeading: false,
+      automaticallyImplyLeading: true,
     );
   }
 

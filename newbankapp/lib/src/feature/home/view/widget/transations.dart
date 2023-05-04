@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newbankapp/src/component/newbank_bar.dart';
 
 class UserTransations extends StatelessWidget {
   const UserTransations({super.key});
@@ -6,7 +7,7 @@ class UserTransations extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _newbankBar(),
+      appBar: NewBankBar(),
       backgroundColor: Colors.white30,
       body: const Center(
         child: Text(
@@ -16,23 +17,6 @@ class UserTransations extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  PreferredSizeWidget _newbankBar() {
-    return AppBar(
-      title: const Text(
-        "NW",
-        style: TextStyle(
-          fontFamily: "Cormorant",
-          fontWeight: FontWeight.bold,
-          fontSize: 42,
-        ),
-      ),
-      centerTitle: true,
-      backgroundColor: Colors.indigo,
-      elevation: 5,
-      automaticallyImplyLeading: false,
     );
   }
 }
