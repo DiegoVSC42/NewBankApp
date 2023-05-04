@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:newbankapp/src/feature/Auth/view/page/auth.page.dart';
+import 'package:localization/localization.dart';
 
 // StatefulWidget
 class OnboardingScreen extends StatefulWidget {
@@ -51,9 +52,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       pages: [
         // Cada página da onboard (Page View Model)
         PageViewModel(
-          title: "Bem-Vindo", // Título
+          title: "welcome".i18n(), // Título
 
-          body: "Veja seu saldo a qualquer momento.", // Frase
+          body: "phrase_ob1".i18n(), // Frase
           image: _buildImage('imagem-1.png'), //Imagem utilizada
           decoration:
               pageDecoration, // Uso do contrutor para cada página (Manter o mesmo padrão)
@@ -61,8 +62,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
         PageViewModel(
           title: '',
-          body:
-              "Crie uma poupança e guarde qualquer quantia da sua conta nela.",
+          body: "phrase_ob2".i18n(),
           image: _buildImage('imagem-2.png'),
           decoration: pageDecoration,
         ),
@@ -71,11 +71,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           title: "",
           bodyWidget: Column(
             children: [
-              const Center(
+              Center(
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    " Faça compras online com seu cartão digital.",
+                    "phrase_ob3".i18n(),
                     style: TextStyle(
                       color: Colors.indigo,
                       fontSize: 30,
@@ -100,8 +100,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
                 //Quual texto colocana barra
-                child: const Text(
-                  'VAMOS COMEÇAR !',
+                child: Text(
+                  "phrase_ob4".i18n(),
                   style: TextStyle(
                       color: Colors.white, fontSize: 15.5), //Cor do texto
                 ),
@@ -120,13 +120,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       //skipOrBackFlex: 0,
       nextFlex: 1, // Posição de quando aperta em Próximo
       // Botão de Pular
-      skip: const Text('Pular',
+      skip: Text('skip'.i18n(),
           style: TextStyle(fontWeight: FontWeight.w800, color: Colors.indigo)),
       // Botão de Voltar
-      back: const Text('Voltar',
+      back: Text('back'.i18n(),
           style: TextStyle(fontWeight: FontWeight.w800, color: Colors.indigo)),
       // Botão de Próximo
-      next: const Text('Próximo',
+      next: Text('next'.i18n(),
           style: TextStyle(fontWeight: FontWeight.w800, color: Colors.indigo)),
       //
       curve: Curves.fastLinearToSlowEaseIn, // Atraso para passar as páginas

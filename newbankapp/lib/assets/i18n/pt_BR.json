@@ -1,3 +1,11 @@
 {
-    "app_name": "NewBank"
+    "app_name": "NewBank",
+    "welcome": "Bem-Vindo",
+    "phrase_ob1": "Veja seu saldo a qualquer momento.",
+    "phrase_ob2": "Crie uma poupança e guarde qualquer quantia da sua conta nela.",
+    "phrase_ob3": "Faça compras online com seu cartão digital.",
+    "phrase_ob4": "VAMOS COMEÇAR !",
+    "skip": "Pular",
+    "back": "Voltar",
+    "next": "Próximo"
 }

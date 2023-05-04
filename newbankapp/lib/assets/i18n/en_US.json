@@ -1,3 +1,11 @@
 {
-    "app_name": "NewBank"
+    "app_name": "NewBank",
+    "welcome": "Welcome",
+    "phrase_ob1": "See your balance any time",
+    "phrase_ob2": "Create a savings account and store any amount in your account there.",
+    "phrase_ob3": "Shop online with your digital card.",
+    "phrase_ob4": "LET'S START !",
+    "skip": "Skip",
+    "back": "Back",
+    "next": "Next"
 }
