@@ -36,7 +36,7 @@ class _LoginState extends State<Login> {
         padding: const EdgeInsets.all(20.0),
         child: Center(
           child: Container(
-            height: 300,
+            height: 320,
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.indigo.withOpacity(0.8),
@@ -47,32 +47,64 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
-                    Text(
-                      "Login",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 35,
-                        fontFamily: "Big Shoulders Display",
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Input(
-                        label: "Username:",
-                        ctrl: usernameCtrl,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                              controller: usernameCtrl,
+                              keyboardType: TextInputType.name,
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(
+                                  Icons.person,
+                                  color: Colors.white,
+                                ),
+                                labelText: "Nome de usuário",
+                                hintText: "Ex: SeuNome123",
+                                labelStyle: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                                hintStyle: TextStyle(
+                                  color: Colors.black.withOpacity(0.5),
+                                ),
+                              ),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontFamily: "Big Shoulders Display",
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                              controller: passwordCtrl,
+                              keyboardType: TextInputType.name,
+                              decoration: const InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.lock,
+                                  color: Colors.white,
+                                ),
+                                labelText: "Senha",
+                                labelStyle: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontFamily: "Big Shoulders Display",
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: _loginButton(),
+                          ),
+                        ],
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Input(
-                        label: "Password:",
-                        ctrl: passwordCtrl,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: _loginButton(),
                     ),
                   ],
                 ),
