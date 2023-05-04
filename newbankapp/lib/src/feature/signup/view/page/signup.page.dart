@@ -79,14 +79,14 @@ class _SignUpState extends State<SignUp> {
                       height: 10,
                     ),
                     Input(
-                      label: "Cpf",
+                      label: "CPF",
                       ctrl: cpfTec,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Input(
-                      label: "Email",
+                      label: "E-mail",
                       ctrl: emailTec,
                     ),
                     const SizedBox(
