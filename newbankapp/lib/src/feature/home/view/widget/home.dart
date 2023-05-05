@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:newbankapp/src/component/newbank_text.dart';
+import 'package:newbankapp/src/component/newbank_textButton.dart';
 
 import '../../../../component/newbank_appbar.dart';
 
@@ -272,7 +273,7 @@ class _UserHomeState extends State<UserHome> {
             ),
           ),
         ),
-        ElevatedButton(
+        TextButton(
           onPressed: () {
             setState(
               () {
@@ -292,7 +293,7 @@ class _UserHomeState extends State<UserHome> {
                         content: const NewBankText(
                           'Valor maior do que o saldo em conta!',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.indigo,
                           ),
                         ),
                         actions: <Widget>[
@@ -315,14 +316,16 @@ class _UserHomeState extends State<UserHome> {
               },
             );
           },
-          style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.indigo,
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+              Colors.indigo,
+            ),
           ),
           child: const NewBankText(
             "Guardar",
             style: TextStyle(
               fontSize: 16,
+              color: Colors.white,
             ),
           ),
         ),
@@ -390,7 +393,7 @@ class _UserHomeState extends State<UserHome> {
             ),
           ),
         ),
-        ElevatedButton(
+        TextButton(
           onPressed: () {
             setState(() {
               if (_vaultValue >= double.parse(retrieveController.text)) {
@@ -409,7 +412,7 @@ class _UserHomeState extends State<UserHome> {
                       content: const NewBankText(
                         'Valor maior do que o valor guardado!',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.indigo,
                         ),
                       ),
                       actions: <Widget>[
@@ -431,14 +434,16 @@ class _UserHomeState extends State<UserHome> {
               }
             });
           },
-          style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.indigo,
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+              Colors.indigo,
+            ),
           ),
           child: const NewBankText(
             "Resgatar",
             style: TextStyle(
               fontSize: 16,
+              color: Colors.white,
             ),
           ),
         ),

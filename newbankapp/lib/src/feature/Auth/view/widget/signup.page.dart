@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
+import 'package:newbankapp/src/component/newbank_textButton.dart';
 
 import '../../../../component/newbank_container.dart';
 import '../../../../component/newbank_text.dart';
@@ -84,15 +85,14 @@ class _SignUpState extends State<SignUp> {
                       ctrl: passwordTec,
                     ),
 
-                    ElevatedButton(
+                    NewBankTextButton(
                       onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.indigo,
-                      ),
                       child: const NewBankText(
                         "Registrar",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.indigo,
+                        ),
                       ),
                     ),
                     // LoginButton(
