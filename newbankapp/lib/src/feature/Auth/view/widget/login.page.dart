@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
                         color: Colors.white,
                       ),
                       hintStyle: TextStyle(
-                        color: Colors.black.withOpacity(0.5),
+                        color: Colors.white.withOpacity(0.5),
                       ),
                     ),
                     style: const TextStyle(
@@ -78,6 +78,8 @@ class _LoginState extends State<Login> {
                       fontSize: 20,
                       fontFamily: "Big Shoulders Display",
                     ),
+                    obscureText: true,
+                    obscuringCharacter: "•",
                   ),
                   _loginButton(),
                 ],

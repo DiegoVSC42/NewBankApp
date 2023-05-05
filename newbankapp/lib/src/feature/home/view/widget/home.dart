@@ -35,7 +35,7 @@ class _UserHomeState extends State<UserHome> {
           _savedValue(showedVaultValue),
           //CARD PARA GUARDAR VALOR
           _saveValue(),
-
+          //CARD PARA RESGATAR VALOR
           _retrieveValue(_userBalance),
         ],
       ),
@@ -240,13 +240,25 @@ class _UserHomeState extends State<UserHome> {
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         child: TextFormField(
                           controller: saveController,
-                          decoration: const InputDecoration(
-                            labelStyle: TextStyle(
+                          decoration: InputDecoration(
+                            labelText: "Digite o valor que será guardado:",
+                            hintText: "Exemplo: 42.50",
+                            hintStyle: TextStyle(
+                              color: Colors.white.withOpacity(0.5),
+                            ),
+                            labelStyle: const TextStyle(
                               color: Colors.white,
                             ),
-                            hintText: ("Exemplo: 42.50"),
-                            hintStyle: TextStyle(color: Colors.white54),
-                            labelText: 'Digite o valor que será guardado',
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.white.withOpacity(0.5),
+                              ),
+                            ),
+                            focusedBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.indigo,
+                              ),
+                            ),
                           ),
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
@@ -262,9 +274,46 @@ class _UserHomeState extends State<UserHome> {
         ),
         ElevatedButton(
           onPressed: () {
-            setState(() {
-              _updateVaultValue(double.parse(saveController.text));
-            });
+            setState(
+              () {
+                if (_userBalance >= double.parse(saveController.text)) {
+                  _updateVaultValue(double.parse(saveController.text));
+                  _updateBalance(-double.parse(saveController.text));
+                } else {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const NewBankText(
+                          'Aviso',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        content: const NewBankText(
+                          'Valor maior do que o saldo em conta!',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            child: const NewBankText(
+                              'OK',
+                              style: TextStyle(
+                                color: Colors.indigo,
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+              },
+            );
           },
           style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
@@ -309,13 +358,25 @@ class _UserHomeState extends State<UserHome> {
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         child: TextFormField(
                           controller: retrieveController,
-                          decoration: const InputDecoration(
-                            labelStyle: TextStyle(
+                          decoration: InputDecoration(
+                            labelText: "Digite o valor que será resgatado:",
+                            hintText: "Exemplo: 42.50",
+                            hintStyle: TextStyle(
+                              color: Colors.white.withOpacity(0.5),
+                            ),
+                            labelStyle: const TextStyle(
                               color: Colors.white,
                             ),
-                            hintText: ("Exemplo: 42.50"),
-                            hintStyle: TextStyle(color: Colors.white54),
-                            labelText: 'Digite o valor que será resgatado',
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.white.withOpacity(0.5),
+                              ),
+                            ),
+                            focusedBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.indigo,
+                              ),
+                            ),
                           ),
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
@@ -346,7 +407,11 @@ class _UserHomeState extends State<UserHome> {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       content: const NewBankText(
-                          'Valor maior do que o valor guardado!'),
+                        'Valor maior do que o valor guardado!',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
                       actions: <Widget>[
                         TextButton(
                           child: const NewBankText(

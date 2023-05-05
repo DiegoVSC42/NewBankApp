@@ -3,7 +3,7 @@ import 'package:newbankapp/src/component/newbank_appbar.dart';
 
 import '../../../../component/newbank_container.dart';
 import '../../../../component/newbank_text.dart';
-import '../../../login/view/widget/input.widget.dart';
+import 'input.widget.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
