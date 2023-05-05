@@ -28,8 +28,21 @@ class _InputState extends State<Input> {
             decoration: InputDecoration(
               labelText: "${widget.label}:",
               hintText: text,
+              hintStyle: TextStyle(
+                color: Colors.white.withOpacity(0.5),
+              ),
               labelStyle: const TextStyle(
                 color: Colors.white,
+              ),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.white.withOpacity(0.5),
+                ),
+              ),
+              focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.indigo,
+                ),
               ),
             ),
             style: const TextStyle(
@@ -88,7 +101,7 @@ class _InputState extends State<Input> {
         break;
       case "Phone":
         {
-          hintReturn = "(55)14565-1234";
+          hintReturn = "(42)14565-1234";
           _updateHint(hintReturn);
         }
     }

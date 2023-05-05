@@ -3,6 +3,7 @@ import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:newbankapp/src/component/newbank_text.dart';
 import '../../../../component/newbank_container.dart';
+import '../../../../component/newbank_textButton.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -51,7 +52,7 @@ class _LoginState extends State<Login> {
                         color: Colors.white,
                       ),
                       hintStyle: TextStyle(
-                        color: Colors.black.withOpacity(0.5),
+                        color: Colors.white.withOpacity(0.5),
                       ),
                     ),
                     style: const TextStyle(
@@ -78,6 +79,8 @@ class _LoginState extends State<Login> {
                       fontSize: 20,
                       fontFamily: "Big Shoulders Display",
                     ),
+                    obscureText: true,
+                    obscuringCharacter: "•",
                   ),
                   _loginButton(),
                 ],
@@ -97,28 +100,16 @@ class _LoginState extends State<Login> {
   }
 
   Widget _loginButton() {
-    return SizedBox(
-      width: 200,
-      height: 40,
-      child: TextButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-          ),
-        ),
-        onPressed: () {
-          _updateUser(usernameCtrl.text, passwordCtrl.text);
-          _login(username, password);
-        },
-        child: const NewBankText(
-          "Login",
-          style: TextStyle(
-            color: Colors.indigo,
-            fontSize: 16,
-          ),
+    return NewBankTextButton(
+      onPressed: () {
+        _updateUser(usernameCtrl.text, passwordCtrl.text);
+        _login(username, password);
+      },
+      child: const NewBankText(
+        "Login",
+        style: TextStyle(
+          color: Colors.indigo,
+          fontSize: 16,
         ),
       ),
     );

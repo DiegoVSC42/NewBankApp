@@ -23,7 +23,9 @@ class NewBankContainer extends Container {
     return Container(
       height: height,
       width: width,
-      decoration: decoration.copyWith(color: Colors.indigo.withOpacity(0.8)),
+      decoration: decoration.copyWith(
+        color: Colors.indigo.withOpacity(0.8),
+      ),
       child: child,
     );
   }

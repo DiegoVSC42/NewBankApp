@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:newbankapp/src/component/newbank_text.dart';
+import 'package:newbankapp/src/component/newbank_textButton.dart';
 import 'package:newbankapp/src/feature/home/view/page/homepage.dart';
 
 import '../widget/login.page.dart';
@@ -19,55 +20,49 @@ class Auth extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: NewBankContainer(
             height: 300,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const NewBankText("Ja possui cadastro ?"),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Login()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.indigo,
-                    fixedSize: const Size(
-                      250,
-                      25,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const NewBankText("Ja possui cadastro ?"),
+                  NewBankTextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Login()),
+                      );
+                    },
+                    child: const NewBankText(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.indigo,
+                      ),
                     ),
                   ),
-                  child: const NewBankText(
-                    "Login",
-                    style: TextStyle(fontSize: 16),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 16.0),
+                    child: NewBankText("Criar nova conta"),
                   ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 16.0),
-                  child: NewBankText("Criar nova conta"),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUp()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.indigo,
-                    fixedSize: const Size(
-                      250,
-                      25,
+                  NewBankTextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SignUp()),
+                      );
+                    },
+                    child: const NewBankText(
+                      "SignUp",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.indigo,
+                      ),
                     ),
                   ),
-                  child: const NewBankText(
-                    "SignUp",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -77,7 +72,7 @@ class Auth extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
             );
           }),
     );
