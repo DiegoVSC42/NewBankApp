@@ -61,7 +61,7 @@ class _UserHomeState extends State<UserHome> {
             height: 42,
             child: Row(
               children: [
-                Container(
+                CardContainer(
                   width: 42,
                   height: 42,
                   decoration: BoxDecoration(

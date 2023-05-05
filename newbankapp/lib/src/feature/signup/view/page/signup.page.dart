@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_bar.dart';
 
+import '../../../../component/card_container.dart';
 import '../../../login/view/widget/input.widget.dart';
 
 class SignUp extends StatefulWidget {
@@ -29,20 +30,17 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NewBankBar(),
-      body: Container(
-        color: Colors.white,
-        child: ListView(
-          children: [
-            Container(
-              margin: const EdgeInsets.all(30),
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.indigo.withOpacity(0.8),
-                borderRadius: BorderRadius.circular(25),
-              ),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+            child: CardContainer(
+              height: 675,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     const Text(
                       "Sign Up",
@@ -57,51 +55,33 @@ class _SignUpState extends State<SignUp> {
                       label: "Firstname",
                       ctrl: firstNameTec,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
                     Input(
                       label: "Lastname",
                       ctrl: lastNameTec,
-                    ),
-                    const SizedBox(
-                      height: 10,
                     ),
                     Input(
                       label: "CPF",
                       ctrl: cpfTec,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
                     Input(
                       label: "E-mail",
                       ctrl: emailTec,
-                    ),
-                    const SizedBox(
-                      height: 10,
                     ),
                     Input(
                       label: "Phone",
                       ctrl: phoneTec,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+
                     Input(
                       label: "Username",
                       ctrl: usernameTec,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+
                     Input(
                       label: "Password",
                       ctrl: passwordTec,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -120,8 +100,8 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

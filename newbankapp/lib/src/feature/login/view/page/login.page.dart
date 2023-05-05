@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_bar.dart';
 import 'package:newbankapp/src/feature/login/view/widget/input.widget.dart';
 import 'package:http/http.dart' as http;
+import '../../../../component/card_container.dart';
 import '../widget/login_call.widget.dart';
 
 class Login extends StatefulWidget {
@@ -21,82 +22,66 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NewBankBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: Container(
-            height: 320,
-            padding: const EdgeInsets.all(20),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: CardContainer(
+            height: 300,
             decoration: BoxDecoration(
               color: Colors.indigo.withOpacity(0.8),
               borderRadius: BorderRadius.circular(25),
             ),
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: TextFormField(
-                              controller: usernameCtrl,
-                              keyboardType: TextInputType.name,
-                              decoration: InputDecoration(
-                                prefixIcon: const Icon(
-                                  Icons.person,
-                                  color: Colors.white,
-                                ),
-                                labelText: "Nome de usuário",
-                                hintText: "Ex: SeuNome123",
-                                labelStyle: const TextStyle(
-                                  color: Colors.white,
-                                ),
-                                hintStyle: TextStyle(
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                              ),
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontFamily: "Big Shoulders Display",
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: TextFormField(
-                              controller: passwordCtrl,
-                              keyboardType: TextInputType.name,
-                              decoration: const InputDecoration(
-                                prefixIcon: Icon(
-                                  Icons.lock,
-                                  color: Colors.white,
-                                ),
-                                labelText: "Senha",
-                                labelStyle: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontFamily: "Big Shoulders Display",
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: _loginButton(),
-                          ),
-                        ],
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TextFormField(
+                    controller: usernameCtrl,
+                    keyboardType: TextInputType.name,
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(
+                        Icons.person,
+                        color: Colors.white,
+                      ),
+                      labelText: "Nome de usuário",
+                      hintText: "Ex: SeuNome123",
+                      labelStyle: const TextStyle(
+                        color: Colors.white,
+                      ),
+                      hintStyle: TextStyle(
+                        color: Colors.black.withOpacity(0.5),
                       ),
                     ),
-                  ],
-                ),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: "Big Shoulders Display",
+                    ),
+                  ),
+                  TextFormField(
+                    controller: passwordCtrl,
+                    keyboardType: TextInputType.name,
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.white,
+                      ),
+                      labelText: "Senha",
+                      labelStyle: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: "Big Shoulders Display",
+                    ),
+                  ),
+                  _loginButton(),
+                ],
               ),
             ),
           ),

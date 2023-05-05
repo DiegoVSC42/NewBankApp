@@ -4,17 +4,18 @@ class CardContainer extends StatelessWidget {
   final double height;
   final double width;
   final BoxDecoration decoration;
-  final Widget child;
+  final Widget? child;
 
   const CardContainer({
+    super.key,
     this.height = 120,
     this.width = 420,
-    required this.child,
     this.decoration = const BoxDecoration(
       borderRadius: BorderRadius.all(
-        Radius.circular(20),
+        Radius.circular(25),
       ),
     ),
+    this.child,
   });
 
   @override
