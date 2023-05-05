@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:newbankapp/src/component/newbank_bar.dart';
+import 'package:newbankapp/src/component/newbank_appbar.dart';
 
-import '../../../../component/card_container.dart';
+import '../../../../component/newbank_container.dart';
+import '../../../../component/newbank_text.dart';
 import '../../../login/view/widget/input.widget.dart';
 
 class SignUp extends StatefulWidget {
@@ -34,21 +35,22 @@ class _SignUpState extends State<SignUp> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-            child: CardContainer(
+            child: NewBankContainer(
               height: 675,
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Text(
+                    const NewBankText(
                       "Sign Up",
-                      textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 35,
-                          fontFamily: "Big Shoulders Display"),
+                        fontSize: 35,
+                        fontFamily: "Big Shoulders Display",
+                        color: Colors.white,
+                      ),
                     ),
 
                     Input(
@@ -88,8 +90,9 @@ class _SignUpState extends State<SignUp> {
                         foregroundColor: Colors.white,
                         backgroundColor: Colors.indigo,
                       ),
-                      child: const Text(
+                      child: const NewBankText(
                         "Registrar",
+                        style: TextStyle(fontSize: 16),
                       ),
                     ),
                     // LoginButton(

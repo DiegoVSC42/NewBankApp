@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:newbankapp/src/component/card_container.dart';
+import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
+import 'package:newbankapp/src/component/newbank_text.dart';
 
-import '../../../../component/newbank_bar.dart';
+import '../../../../component/newbank_appbar.dart';
 
 class UserHome extends StatefulWidget {
   const UserHome({super.key});
@@ -44,7 +45,7 @@ class _UserHomeState extends State<UserHome> {
   //BARRA SUPERIOR
   PreferredSizeWidget _newbankBar() {
     return NewBankBar(
-      title: const Text(
+      title: const NewBankText(
         "NW",
         style: TextStyle(
           fontFamily: "Cormorant",
@@ -54,14 +55,14 @@ class _UserHomeState extends State<UserHome> {
       ),
       centerTitle: true,
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(50),
+        preferredSize: const Size.fromHeight(50),
         child: Padding(
           padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
           child: SizedBox(
             height: 42,
             child: Row(
               children: [
-                CardContainer(
+                NewBankContainer(
                   width: 42,
                   height: 42,
                   decoration: BoxDecoration(
@@ -74,7 +75,7 @@ class _UserHomeState extends State<UserHome> {
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text(
+                  child: NewBankText(
                     "Olá, 'USER_NAME'",
                     style: TextStyle(
                       fontFamily: "Cormorant",
@@ -88,8 +89,6 @@ class _UserHomeState extends State<UserHome> {
           ),
         ),
       ),
-      backgroundColor: Colors.indigo,
-      elevation: 5,
       automaticallyImplyLeading: true,
     );
   }
@@ -99,7 +98,7 @@ class _UserHomeState extends State<UserHome> {
     String showedValue = userBalance.toStringAsFixed(2);
     return Padding(
       padding: const EdgeInsets.all(12.0),
-      child: CardContainer(
+      child: NewBankContainer(
         child: Column(
           children: [
             Padding(
@@ -109,13 +108,14 @@ class _UserHomeState extends State<UserHome> {
                   const Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: Text(
+                      child: NewBankText(
                         "Saldo em conta corrente: ",
                         style: TextStyle(
                           // fontFamily: "Cormorant",
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
                           overflow: TextOverflow.clip,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -133,10 +133,16 @@ class _UserHomeState extends State<UserHome> {
                       icon: AnimatedSwitcher(
                         duration: const Duration(milliseconds: 300),
                         child: selected
-                            ? const Icon(Icons.remove_red_eye,
-                                key: ValueKey("iconA"))
-                            : const Icon(Icons.remove_red_eye_outlined,
-                                key: ValueKey("iconB")),
+                            ? const Icon(
+                                Icons.remove_red_eye,
+                                color: Colors.white,
+                                key: ValueKey("iconB"),
+                              )
+                            : const Icon(
+                                Icons.remove_red_eye_outlined,
+                                color: Colors.white,
+                                key: ValueKey("iconA"),
+                              ),
                       ),
                     ),
                   ),
@@ -144,20 +150,22 @@ class _UserHomeState extends State<UserHome> {
               ),
             ),
             AnimatedCrossFade(
-              firstChild: Text(
+              firstChild: NewBankText(
                 "R\$$showedValue",
                 style: const TextStyle(
                   // fontFamily: "Cormorant",
                   fontWeight: FontWeight.bold,
                   fontSize: 32,
+                  color: Colors.white,
                 ),
               ),
-              secondChild: const Text(
+              secondChild: const NewBankText(
                 "••••",
                 style: TextStyle(
                   // fontFamily: "Cormorant",
                   fontWeight: FontWeight.bold,
                   fontSize: 42,
+                  color: Colors.white,
                 ),
               ),
               crossFadeState: eyeListener.value
@@ -175,25 +183,27 @@ class _UserHomeState extends State<UserHome> {
   Widget _savedValue(String showedVaultValue) {
     return Padding(
       padding: const EdgeInsets.all(12.0),
-      child: CardContainer(
+      child: NewBankContainer(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Text(
+              child: NewBankText(
                 "Valor Guardado Atual:",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
+                  color: Colors.white,
                 ),
               ),
             ),
-            Text(
+            NewBankText(
               "R\$ $showedVaultValue",
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 32,
+                color: Colors.white,
               ),
             ),
           ],
@@ -208,18 +218,19 @@ class _UserHomeState extends State<UserHome> {
       children: [
         Padding(
           padding: const EdgeInsets.all(12.0),
-          child: CardContainer(
+          child: NewBankContainer(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   const Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Text(
+                    child: NewBankText(
                       "Guardar dinheiro",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -231,15 +242,15 @@ class _UserHomeState extends State<UserHome> {
                           controller: saveController,
                           decoration: const InputDecoration(
                             labelStyle: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                             hintText: ("Exemplo: 42.50"),
-                            hintStyle: TextStyle(color: Colors.black54),
+                            hintStyle: TextStyle(color: Colors.white54),
                             labelText: 'Digite o valor que será guardado',
                           ),
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
-                          cursorColor: Colors.black,
+                          cursorColor: Colors.white,
                         ),
                       ),
                     ],
@@ -255,12 +266,15 @@ class _UserHomeState extends State<UserHome> {
               _updateVaultValue(double.parse(saveController.text));
             });
           },
-          child: Text(
-            "Guardar",
-          ),
           style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
             backgroundColor: Colors.indigo,
+          ),
+          child: const NewBankText(
+            "Guardar",
+            style: TextStyle(
+              fontSize: 16,
+            ),
           ),
         ),
       ],
@@ -273,18 +287,19 @@ class _UserHomeState extends State<UserHome> {
       children: [
         Padding(
           padding: const EdgeInsets.all(12.0),
-          child: CardContainer(
+          child: NewBankContainer(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   const Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Text(
+                    child: NewBankText(
                       "Resgatar dinheiro",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -296,15 +311,15 @@ class _UserHomeState extends State<UserHome> {
                           controller: retrieveController,
                           decoration: const InputDecoration(
                             labelStyle: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                             hintText: ("Exemplo: 42.50"),
-                            hintStyle: TextStyle(color: Colors.black54),
+                            hintStyle: TextStyle(color: Colors.white54),
                             labelText: 'Digite o valor que será resgatado',
                           ),
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
-                          cursorColor: Colors.black,
+                          cursorColor: Colors.white,
                         ),
                       ),
                     ],
@@ -325,15 +340,16 @@ class _UserHomeState extends State<UserHome> {
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      title: Text(
+                      title: const NewBankText(
                         'Aviso',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      content: Text('Valor maior do que o valor guardado!'),
+                      content: const NewBankText(
+                          'Valor maior do que o valor guardado!'),
                       actions: <Widget>[
                         TextButton(
-                          child: Text(
+                          child: const NewBankText(
                             'OK',
                             style: TextStyle(
                               color: Colors.indigo,
@@ -350,12 +366,15 @@ class _UserHomeState extends State<UserHome> {
               }
             });
           },
-          child: const Text(
-            "Resgatar",
-          ),
           style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
             backgroundColor: Colors.indigo,
+          ),
+          child: const NewBankText(
+            "Resgatar",
+            style: TextStyle(
+              fontSize: 16,
+            ),
           ),
         ),
       ],

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:newbankapp/src/component/newbank_bar.dart';
-import 'package:newbankapp/src/feature/login/view/widget/input.widget.dart';
+import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:http/http.dart' as http;
-import '../../../../component/card_container.dart';
-import '../widget/login_call.widget.dart';
+import 'package:newbankapp/src/component/newbank_text.dart';
+import '../../../../component/newbank_container.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -25,7 +24,7 @@ class _LoginState extends State<Login> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: CardContainer(
+          child: NewBankContainer(
             height: 300,
             decoration: BoxDecoration(
               color: Colors.indigo.withOpacity(0.8),
@@ -114,10 +113,11 @@ class _LoginState extends State<Login> {
           _updateUser(usernameCtrl.text, passwordCtrl.text);
           _login(username, password);
         },
-        child: const Text(
+        child: const NewBankText(
           "Login",
           style: TextStyle(
             color: Colors.indigo,
+            fontSize: 16,
           ),
         ),
       ),

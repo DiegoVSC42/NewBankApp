@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newbankapp/src/component/newbank_bar.dart';
+import 'package:newbankapp/src/component/newbank_appbar.dart';
 
 class UserCards extends StatelessWidget {
   const UserCards({super.key});

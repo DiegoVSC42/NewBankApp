@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:newbankapp/src/component/card_container.dart';
-import 'package:newbankapp/src/component/newbank_bar.dart';
+import 'package:newbankapp/src/component/newbank_container.dart';
+import 'package:newbankapp/src/component/newbank_appbar.dart';
+import 'package:newbankapp/src/component/newbank_text.dart';
 import 'package:newbankapp/src/feature/home/view/page/homepage.dart';
 import 'package:newbankapp/src/feature/login/view/page/login.page.dart';
 import 'package:newbankapp/src/feature/signup/view/page/signup.page.dart';
@@ -15,19 +16,12 @@ class Auth extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: CardContainer(
+          child: NewBankContainer(
             height: 300,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Ja possui cadastro ?",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                const NewBankText("Ja possui cadastro ?"),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -43,20 +37,14 @@ class Auth extends StatelessWidget {
                       25,
                     ),
                   ),
-                  child: const Text(
+                  child: const NewBankText(
                     "Login",
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 16.0),
-                  child: Text(
-                    "Criar nova conta",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  child: NewBankText("Criar nova conta"),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -73,8 +61,9 @@ class Auth extends StatelessWidget {
                       25,
                     ),
                   ),
-                  child: const Text(
+                  child: const NewBankText(
                     "SignUp",
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
               ],

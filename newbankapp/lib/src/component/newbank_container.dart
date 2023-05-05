@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CardContainer extends StatelessWidget {
+class NewBankContainer extends Container {
   final double height;
   final double width;
   final BoxDecoration decoration;
   final Widget? child;
 
-  const CardContainer({
+  NewBankContainer({
     super.key,
     this.height = 120,
     this.width = 420,
