@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:newbankapp/src/component/newbank_text.dart';
-import 'package:newbankapp/src/component/newbank_textButton.dart';
-
+import 'package:newbankapp/src/component/newbank_textbutton.dart';
 import '../../../../component/newbank_appbar.dart';
 
 class UserHome extends StatefulWidget {
@@ -261,6 +260,9 @@ class _UserHomeState extends State<UserHome> {
                               ),
                             ),
                           ),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                           cursorColor: Colors.white,
@@ -273,7 +275,7 @@ class _UserHomeState extends State<UserHome> {
             ),
           ),
         ),
-        TextButton(
+        NewBankTextButton(
           onPressed: () {
             setState(
               () {
@@ -288,7 +290,10 @@ class _UserHomeState extends State<UserHome> {
                         title: const NewBankText(
                           'Aviso',
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.indigo,
+                          ),
                         ),
                         content: const NewBankText(
                           'Valor maior do que o saldo em conta!',
@@ -316,11 +321,6 @@ class _UserHomeState extends State<UserHome> {
               },
             );
           },
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-              Colors.indigo,
-            ),
-          ),
           child: const NewBankText(
             "Guardar",
             style: TextStyle(
@@ -384,6 +384,9 @@ class _UserHomeState extends State<UserHome> {
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                           cursorColor: Colors.white,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],
@@ -393,7 +396,7 @@ class _UserHomeState extends State<UserHome> {
             ),
           ),
         ),
-        TextButton(
+        NewBankTextButton(
           onPressed: () {
             setState(() {
               if (_vaultValue >= double.parse(retrieveController.text)) {
@@ -407,7 +410,10 @@ class _UserHomeState extends State<UserHome> {
                       title: const NewBankText(
                         'Aviso',
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.indigo,
+                        ),
                       ),
                       content: const NewBankText(
                         'Valor maior do que o valor guardado!',
@@ -434,11 +440,6 @@ class _UserHomeState extends State<UserHome> {
               }
             });
           },
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-              Colors.indigo,
-            ),
-          ),
           child: const NewBankText(
             "Resgatar",
             style: TextStyle(

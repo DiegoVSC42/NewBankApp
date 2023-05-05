@@ -17,10 +17,10 @@ class NewBankTextButton extends StatelessWidget {
     return TextButton(
       style: ButtonStyle(
         overlayColor: MaterialStateProperty.all<Color>(
-          Colors.indigo.withOpacity(.5),
+          Colors.white.withOpacity(.5),
         ),
         backgroundColor: MaterialStateProperty.all<Color>(
-          Colors.white,
+          Colors.indigo,
         ),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
@@ -29,8 +29,8 @@ class NewBankTextButton extends StatelessWidget {
         ),
         side: MaterialStateProperty.all<BorderSide>(
           const BorderSide(
-            color: Colors.indigo,
-            width: 1.5,
+            color: Colors.white,
+            width: 0.25,
           ),
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
-import 'package:newbankapp/src/component/newbank_textButton.dart';
+import 'package:newbankapp/src/component/newbank_textbutton.dart';
 
 import '../../../../component/newbank_container.dart';
 import '../../../../component/newbank_text.dart';
