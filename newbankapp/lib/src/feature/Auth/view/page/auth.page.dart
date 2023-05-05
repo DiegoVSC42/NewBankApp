@@ -3,8 +3,9 @@ import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:newbankapp/src/component/newbank_text.dart';
 import 'package:newbankapp/src/feature/home/view/page/homepage.dart';
-import 'package:newbankapp/src/feature/login/view/page/login.page.dart';
-import 'package:newbankapp/src/feature/signup/view/page/signup.page.dart';
+
+import '../widget/login.page.dart';
+import '../widget/signup.page.dart';
 
 class Auth extends StatelessWidget {
   const Auth({super.key});
