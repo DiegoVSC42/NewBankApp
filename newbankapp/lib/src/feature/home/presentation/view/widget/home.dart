@@ -260,7 +260,7 @@ class _UserHomeState extends State<UserHome> {
                               ),
                             ),
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                           ),
                           keyboardType: TextInputType.number,
@@ -279,44 +279,46 @@ class _UserHomeState extends State<UserHome> {
           onPressed: () {
             setState(
               () {
-                if (_userBalance >= double.parse(saveController.text)) {
-                  _updateVaultValue(double.parse(saveController.text));
-                  _updateBalance(-double.parse(saveController.text));
-                } else {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const NewBankText(
-                          'Aviso',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.indigo,
-                          ),
-                        ),
-                        content: const NewBankText(
-                          'Valor maior do que o saldo em conta!',
-                          style: TextStyle(
-                            color: Colors.indigo,
-                          ),
-                        ),
-                        actions: <Widget>[
-                          TextButton(
-                            child: const NewBankText(
-                              'OK',
-                              style: TextStyle(
-                                color: Colors.indigo,
-                              ),
+                if (saveController.text.isNotEmpty) {
+                  if (_userBalance >= double.parse(saveController.text)) {
+                    _updateVaultValue(double.parse(saveController.text));
+                    _updateBalance(-double.parse(saveController.text));
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const NewBankText(
+                            'Aviso',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.indigo,
                             ),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
                           ),
-                        ],
-                      );
-                    },
-                  );
+                          content: const NewBankText(
+                            'Valor maior do que o saldo em conta!',
+                            style: TextStyle(
+                              color: Colors.indigo,
+                            ),
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              child: const NewBankText(
+                                'OK',
+                                style: TextStyle(
+                                  color: Colors.indigo,
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
                 }
               },
             );
@@ -384,7 +386,7 @@ class _UserHomeState extends State<UserHome> {
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                           cursorColor: Colors.white,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                           ),
                         ),
@@ -399,44 +401,46 @@ class _UserHomeState extends State<UserHome> {
         NewBankTextButton(
           onPressed: () {
             setState(() {
-              if (_vaultValue >= double.parse(retrieveController.text)) {
-                _updateVaultValue(-double.parse(retrieveController.text));
-                _updateBalance(double.parse(retrieveController.text));
-              } else {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const NewBankText(
-                        'Aviso',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.indigo,
-                        ),
-                      ),
-                      content: const NewBankText(
-                        'Valor maior do que o valor guardado!',
-                        style: TextStyle(
-                          color: Colors.indigo,
-                        ),
-                      ),
-                      actions: <Widget>[
-                        TextButton(
-                          child: const NewBankText(
-                            'OK',
-                            style: TextStyle(
-                              color: Colors.indigo,
-                            ),
+              if (retrieveController.text.isNotEmpty) {
+                if (_vaultValue >= double.parse(retrieveController.text)) {
+                  _updateVaultValue(-double.parse(retrieveController.text));
+                  _updateBalance(double.parse(retrieveController.text));
+                } else {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const NewBankText(
+                          'Aviso',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.indigo,
                           ),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
                         ),
-                      ],
-                    );
-                  },
-                );
+                        content: const NewBankText(
+                          'Valor maior do que o valor guardado!',
+                          style: TextStyle(
+                            color: Colors.indigo,
+                          ),
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            child: const NewBankText(
+                              'OK',
+                              style: TextStyle(
+                                color: Colors.indigo,
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
               }
             });
           },
