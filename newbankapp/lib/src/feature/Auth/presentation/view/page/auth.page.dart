@@ -3,7 +3,7 @@ import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:newbankapp/src/component/newbank_text.dart';
 import 'package:newbankapp/src/component/newbank_textbutton.dart';
-import 'package:newbankapp/src/feature/home/view/page/homepage.dart';
+import 'package:newbankapp/src/feature/home/presentation/view/page/homepage.dart';
 
 import '../widget/login.page.dart';
 import '../widget/signup.page.dart';

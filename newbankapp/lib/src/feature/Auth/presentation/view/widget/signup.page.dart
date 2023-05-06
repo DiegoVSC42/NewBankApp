@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:newbankapp/src/component/newbank_textbutton.dart';
 
-import '../../../../component/newbank_container.dart';
-import '../../../../component/newbank_text.dart';
+import '../../../../../component/newbank_container.dart';
+import '../../../../../component/newbank_text.dart';
 import 'input.widget.dart';
 
 class SignUp extends StatefulWidget {

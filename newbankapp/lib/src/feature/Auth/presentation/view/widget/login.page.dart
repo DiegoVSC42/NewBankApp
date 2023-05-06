@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:newbankapp/src/component/newbank_text.dart';
-import '../../../../component/newbank_container.dart';
-import '../../../../component/newbank_textbutton.dart';
+import '../../../../../component/newbank_container.dart';
+import '../../../../../component/newbank_textbutton.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

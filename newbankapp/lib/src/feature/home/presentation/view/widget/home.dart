@@ -3,7 +3,7 @@ import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:newbankapp/src/component/newbank_text.dart';
 import 'package:newbankapp/src/component/newbank_textbutton.dart';
-import '../../../../component/newbank_appbar.dart';
+import '../../../../../component/newbank_appbar.dart';
 
 class UserHome extends StatefulWidget {
   const UserHome({super.key});
