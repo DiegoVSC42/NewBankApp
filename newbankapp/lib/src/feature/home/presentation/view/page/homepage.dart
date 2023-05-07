@@ -4,7 +4,18 @@ import '../widget/home.dart';
 import '../widget/transations.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  var firstName = "";
+  var lastName = "";
+  var balance = 0;
+  var userToken = "";
+
+  HomePage({
+    required this.firstName,
+    required this.lastName,
+    required this.balance,
+    required this.userToken,
+    super.key,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -12,10 +23,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 1;
-  static const List<Widget> _pages = [
-    UserTransations(),
-    UserHome(),
-    UserCards(),
+
+  final List<Widget> _pages = [
+    const UserTransations(),
+    UserHome(
+      balance: 0,
+      lastName: '',
+      firstName: '',
+      userToken: '',
+    ),
+    const UserCards(),
   ];
 
   void _navigateBottomNavBar(int index) {
@@ -26,6 +43,15 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final userHomeWidget = UserHome(
+      balance: widget.balance,
+      lastName: widget.lastName,
+      firstName: widget.firstName,
+      userToken: widget.userToken,
+    );
+
+    _pages[1] = userHomeWidget;
+
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(

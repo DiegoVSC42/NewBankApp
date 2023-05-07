@@ -6,7 +6,18 @@ import 'package:newbankapp/src/component/newbank_textbutton.dart';
 import '../../../../../component/newbank_appbar.dart';
 
 class UserHome extends StatefulWidget {
-  const UserHome({super.key});
+  var firstName = "";
+  var lastName = "";
+  var balance = 0;
+  var userToken = "";
+
+  UserHome({
+    required this.firstName,
+    required this.lastName,
+    required this.balance,
+    required this.userToken,
+    super.key,
+  });
 
   @override
   State<UserHome> createState() => _UserHomeState();
@@ -76,7 +87,7 @@ class _UserHomeState extends State<UserHome> {
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: NewBankText(
-                    "Olá, 'USER_NAME'",
+                    "Olá, usuário",
                     style: TextStyle(
                       fontFamily: "Cormorant",
                       fontWeight: FontWeight.bold,

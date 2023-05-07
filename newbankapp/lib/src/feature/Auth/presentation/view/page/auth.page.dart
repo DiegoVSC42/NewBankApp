@@ -5,8 +5,8 @@ import 'package:newbankapp/src/component/newbank_text.dart';
 import 'package:newbankapp/src/component/newbank_textbutton.dart';
 import 'package:newbankapp/src/feature/home/presentation/view/page/homepage.dart';
 
-import '../widget/login.page.dart';
-import '../widget/signup.page.dart';
+import 'login.page.dart';
+import 'signup.page.dart';
 
 class Auth extends StatelessWidget {
   const Auth({super.key});
@@ -72,7 +72,13 @@ class Auth extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const HomePage()),
+              MaterialPageRoute(
+                  builder: (context) => HomePage(
+                        balance: 0,
+                        firstName: '',
+                        lastName: '',
+                        userToken: '',
+                      )),
             );
           }),
     );

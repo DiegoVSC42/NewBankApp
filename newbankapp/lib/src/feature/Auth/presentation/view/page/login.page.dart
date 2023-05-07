@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:newbankapp/src/component/newbank_text.dart';
+import 'package:newbankapp/src/feature/Auth/presentation/view/widget/login_button.widget.dart';
 import '../../../../../component/newbank_container.dart';
 import '../../../../../component/newbank_textbutton.dart';
 
@@ -40,6 +41,11 @@ class _LoginState extends State<Login> {
                 children: [
                   TextFormField(
                     controller: usernameCtrl,
+                    onChanged: (value) {
+                      setState(() {
+                        username = value;
+                      });
+                    },
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
@@ -63,6 +69,11 @@ class _LoginState extends State<Login> {
                   ),
                   TextFormField(
                     controller: passwordCtrl,
+                    onChanged: (value) {
+                      setState(() {
+                        password = value;
+                      });
+                    },
                     keyboardType: TextInputType.name,
                     decoration: const InputDecoration(
                       prefixIcon: Icon(
@@ -82,7 +93,10 @@ class _LoginState extends State<Login> {
                     obscureText: true,
                     obscuringCharacter: "•",
                   ),
-                  _loginButton(),
+                  LoginButton(
+                    username: usernameCtrl.text,
+                    password: passwordCtrl.text,
+                  ),
                 ],
               ),
             ),
@@ -99,31 +113,38 @@ class _LoginState extends State<Login> {
     });
   }
 
-  Widget _loginButton() {
-    return NewBankTextButton(
-      onPressed: () {
-        _updateUser(usernameCtrl.text, passwordCtrl.text);
-        _login(username, password);
-      },
-      child: const NewBankText(
-        "Login",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-        ),
-      ),
-    );
-  }
+  // Widget _loginButton() {
+  //   void login() {
+  //     print("logando usuario...");
+  //     print(username);
+  //     print(password);
+  //   }
 
-  void _login(String username, String password) async {
-    var url = Uri.parse(
-        'http://localhost:7242/api/Auth/login'); // Replace with your own endpoint
-    var response = await http.post(url,
-        body: {'username': 'your-username', 'password': 'your-password'});
-    if (response.statusCode == 200) {
-      // Login successful, handle response here
-    } else {
-      // Login failed, handle error here
-    }
-  }
+  //   void funcaoAnterior() {
+  //     _updateUser(usernameCtrl.text, passwordCtrl.text);
+  //     _login(username, password);
+  //   }
+
+  //   void _login() async {
+  //     var url = Uri.parse('http://localhost:7242/api/Auth/login');
+  //     var response = await http.post(url,
+  //         body: {'username': 'your-username', 'password': 'your-password'});
+  //     if (response.statusCode == 200) {
+  //       // Login successful, handle response here
+  //     } else {
+  //       // Login failed, handle error here
+  //     }
+  //   }
+
+  //   return NewBankTextButton(
+  //     onPressed: login,
+  //     child: const NewBankText(
+  //       "Login",
+  //       style: TextStyle(
+  //         color: Colors.white,
+  //         fontSize: 16,
+  //       ),
+  //     ),
+  //   );
+  // }
 }
