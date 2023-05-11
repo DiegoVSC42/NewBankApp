@@ -1,4 +1,5 @@
 {
+    //ONBOARDING
     "app_name": "NewBank",
     "welcome": "Welcome",
     "phrase_ob1": "See your balance any time.",
@@ -8,5 +9,27 @@
     "skip": "Skip",
     "back": "Back",
     "next": "Next",
+<<<<<<< HEAD
     "teste": "Test Language"
+=======
+
+    //HOME
+    "hello": "Hello, user",
+    "balance": "Account Balance",
+    "saved_m": "Money Saved",
+    "invest": "Invest Your Money",
+    "enter": "Enter the value",
+    "example": "Example: 42.50",
+    "greater": "Value greater than the account balance!",
+    "invest_btn": "Invest",
+    "withdraw": "Withdraw Your Money",
+    "withdraw_btn": "Withdraw",
+
+
+    //AUTENTICAÇÂO
+    "auth_acc" : "Already Have an Account?",
+    "create" : "Create Account",
+    "sign_up" : "Sign Up"
+    
+>>>>>>> 5701b52edbca0bf89a790dc160051dc097b60f28
 }
