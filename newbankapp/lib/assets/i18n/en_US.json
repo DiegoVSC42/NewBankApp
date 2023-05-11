@@ -1,5 +1,4 @@
 {
-    //ONBOARDING
     "app_name": "NewBank",
     "welcome": "Welcome",
     "phrase_ob1": "See your balance any time.",
@@ -9,11 +8,6 @@
     "skip": "Skip",
     "back": "Back",
     "next": "Next",
-<<<<<<< HEAD
-    "teste": "Test Language"
-=======
-
-    //HOME
     "hello": "Hello, user",
     "balance": "Account Balance",
     "saved_m": "Money Saved",
@@ -24,12 +18,8 @@
     "invest_btn": "Invest",
     "withdraw": "Withdraw Your Money",
     "withdraw_btn": "Withdraw",
-
-
-    //AUTENTICAÇÂO
     "auth_acc" : "Already Have an Account?",
     "create" : "Create Account",
     "sign_up" : "Sign Up"
     
->>>>>>> 5701b52edbca0bf89a790dc160051dc097b60f28
 }

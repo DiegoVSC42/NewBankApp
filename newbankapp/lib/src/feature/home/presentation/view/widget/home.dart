@@ -85,17 +85,10 @@ class _UserHomeState extends State<UserHome> {
                     ),
                   ),
                 ),
-<<<<<<< HEAD
                 Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: NewBankText(
-                    "Olá, usuário".i18n(),
-=======
-                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     "hello".i18n(),
->>>>>>> 5701b52edbca0bf89a790dc160051dc097b60f28
                     style: TextStyle(
                       fontFamily: "Cormorant",
                       fontWeight: FontWeight.bold,
@@ -124,7 +117,7 @@ class _UserHomeState extends State<UserHome> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                   Expanded(
+                  Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: NewBankText(

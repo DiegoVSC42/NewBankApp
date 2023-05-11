@@ -9,12 +9,6 @@
     "skip": "Pular",
     "back": "Voltar",
     "next": "Próximo",
-<<<<<<< HEAD
-    "teste": "Teste de Linguagem"
-=======
-
-
-    
     "hello": "Olá, usuário",
     "balance": "Saldo em Conta Corrente",
     "saved_m": "Valor Guardado",
@@ -25,10 +19,8 @@
     "invest_btn": "Investir",
     "withdraw": "Resgate Seu Dinheiro",
     "withdraw_btn": "Resgatar",
-
     "auth_acc" : "Ja possui cadastro?",
     "create" : "Criar Conta",
     "sign_up" : "Registrar"
 
->>>>>>> 5701b52edbca0bf89a790dc160051dc097b60f28
 }
