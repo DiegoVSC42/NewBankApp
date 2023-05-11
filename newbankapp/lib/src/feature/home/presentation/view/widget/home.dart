@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:newbankapp/src/component/newbank_text.dart';
@@ -84,10 +85,10 @@ class _UserHomeState extends State<UserHome> {
                     ),
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(8.0),
                   child: NewBankText(
-                    "Olá, usuário",
+                    "Olá, usuário".i18n(),
                     style: TextStyle(
                       fontFamily: "Cormorant",
                       fontWeight: FontWeight.bold,
