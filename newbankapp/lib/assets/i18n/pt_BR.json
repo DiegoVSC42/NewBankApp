@@ -1,4 +1,5 @@
 {
+
     "app_name": "NewBank",
     "welcome": "Bem-Vindo",
     "phrase_ob1": "Veja seu saldo a qualquer momento.",
@@ -7,5 +8,23 @@
     "phrase_ob4": "VAMOS COMEÇAR !",
     "skip": "Pular",
     "back": "Voltar",
-    "next": "Próximo"
+    "next": "Próximo",
+
+
+    
+    "hello": "Olá, usuário",
+    "balance": "Saldo em Conta Corrente",
+    "saved_m": "Valor Guardado",
+    "invest": "Invista Seu Dinheiro",
+    "enter": "Digite o valor:",
+    "example": "Exemplo: 42,50",
+    "greater": "Valor maior do que o saldo em conta!",
+    "invest_btn": "Investir",
+    "withdraw": "Resgate Seu Dinheiro",
+    "withdraw_btn": "Resgatar",
+
+    "auth_acc" : "Ja possui cadastro?",
+    "create" : "Criar Conta",
+    "sign_up" : "Registrar"
+
 }

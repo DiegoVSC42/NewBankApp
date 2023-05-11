@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:newbankapp/src/component/newbank_text.dart';
@@ -26,7 +27,7 @@ class Auth extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const NewBankText("Ja possui cadastro ?"),
+                  NewBankText("auth_acc".i18n()),
                   NewBankTextButton(
                     onPressed: () {
                       Navigator.push(
@@ -42,9 +43,9 @@ class Auth extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(top: 16.0),
-                    child: NewBankText("Criar nova conta"),
+                    child: NewBankText("create".i18n()),
                   ),
                   NewBankTextButton(
                     onPressed: () {
@@ -53,8 +54,8 @@ class Auth extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => const SignUp()),
                       );
                     },
-                    child: const NewBankText(
-                      "SignUp",
+                    child: NewBankText(
+                      "sign_up".i18n(),
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.white,
