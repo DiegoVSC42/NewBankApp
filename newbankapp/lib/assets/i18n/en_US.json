@@ -16,10 +16,32 @@
     "example": "Example: 42.50",
     "greater": "Value greater than the account balance!",
     "invest_btn": "Invest",
+    "warning": "Warning",
+    "warning_txt": "Value greater than the value saved!",
     "withdraw": "Withdraw Your Money",
     "withdraw_btn": "Withdraw",
     "auth_acc" : "Already Have an Account?",
     "create" : "Create Account",
-    "sign_up" : "Sign Up"
+    "sign_up" : "Sign Up",
+    "username_lgn": "Username",
+    "username_ht_lgn": "Ex: YourName123",
+    "password_lgn": "Password",
+    "firstname": "Firstname",
+    "firstname_ht_sup": "Ex: Bruce",
+    "lastname": "Lastname",
+    "lastname_ht_sup": "Ex: Banner",
+    "CPF": "SSN",
+    "CPF_ht": "AAA-GG-SSSS",
+    "email": "E-mail",
+    "email_ht": "example@example.com",
+    "phone": "Phone",
+    "phone_ht": "(555) 555-1234",
+    "username_sup": "Username",
+    "username_ht_sup": "Name123",
+    "password_sup": "Password",
+    "password_ht_sup": "MyPassword123",
+    "sign_up_sup": "Sign Up"
+
+
     
 }

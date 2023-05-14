@@ -89,7 +89,7 @@ class _UserHomeState extends State<UserHome> {
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     "hello".i18n(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: "Cormorant",
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -122,7 +122,7 @@ class _UserHomeState extends State<UserHome> {
                       padding: EdgeInsets.all(8.0),
                       child: NewBankText(
                         "balance".i18n(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           // fontFamily: "Cormorant",
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
@@ -203,7 +203,7 @@ class _UserHomeState extends State<UserHome> {
               padding: EdgeInsets.all(8.0),
               child: NewBankText(
                 "saved_m".i18n(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
                   color: Colors.white,
@@ -239,7 +239,7 @@ class _UserHomeState extends State<UserHome> {
                     padding: EdgeInsets.all(8.0),
                     child: NewBankText(
                       "invest".i18n(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: Colors.white,
@@ -310,7 +310,7 @@ class _UserHomeState extends State<UserHome> {
                           ),
                           content: NewBankText(
                             "greater".i18n(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.indigo,
                             ),
                           ),
@@ -337,7 +337,7 @@ class _UserHomeState extends State<UserHome> {
           },
           child: NewBankText(
             "invest_btn".i18n(),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.white,
             ),
@@ -362,7 +362,7 @@ class _UserHomeState extends State<UserHome> {
                     padding: EdgeInsets.all(8.0),
                     child: NewBankText(
                       "withdraw".i18n(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: Colors.white,
@@ -422,17 +422,17 @@ class _UserHomeState extends State<UserHome> {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: const NewBankText(
-                          'Aviso',
+                        title: NewBankText(
+                          "warning".i18n(),
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.indigo,
                           ),
                         ),
-                        content: const NewBankText(
-                          'Valor maior do que o valor guardado!',
-                          style: TextStyle(
+                        content: NewBankText(
+                          "warnin_txt".i18n(),
+                          style: const TextStyle(
                             color: Colors.indigo,
                           ),
                         ),
@@ -458,7 +458,7 @@ class _UserHomeState extends State<UserHome> {
           },
           child: NewBankText(
             "withdraw_btn".i18n(),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.white,
             ),

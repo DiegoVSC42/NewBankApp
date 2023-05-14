@@ -1,5 +1,4 @@
 {
-
     "app_name": "NewBank",
     "welcome": "Bem-Vindo",
     "phrase_ob1": "Veja seu saldo a qualquer momento.",
@@ -17,10 +16,30 @@
     "example": "Exemplo: 42,50",
     "greater": "Valor maior do que o saldo em conta!",
     "invest_btn": "Investir",
+    "warning": "Aviso",
+    "warning_txt": "Valor maior do que o valor guardado!",
     "withdraw": "Resgate Seu Dinheiro",
     "withdraw_btn": "Resgatar",
-    "auth_acc" : "Ja possui cadastro?",
+    "auth_acc" : "Já possui cadastro?",
     "create" : "Criar Conta",
-    "sign_up" : "Registrar"
+    "sign_up" : "Registrar",
+    "username_lgn": "Nome de Usuário",
+    "username_ht_lgn": "Ex: SeuNome123",
+    "password_lgn": "Senha",
+    "firstname": "Nome",
+    "firstname_ht_sup": "Ex: Jorge",
+    "lastname": "Sobrenome",
+    "lastname_ht_sup": "Ex: Silva",
+    "CPF": "CPF",
+    "CPF_ht": "123.456.789-10",
+    "email": "E-mail",
+    "email_ht": "exemplo@exemplo.com",
+    "phone": "Telefone",
+    "phone_ht": "(42)14565-1234",
+    "username_sup": "Usuário",
+    "username_ht_sup": "Nome123",
+    "password_sup": "Senha",
+    "password_ht_sup": "Minha_senha123",
+    "sign_up_sup": "Registrar"
 
 }
