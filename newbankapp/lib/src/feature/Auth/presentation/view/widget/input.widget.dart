@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 class Input extends StatefulWidget {
   var label = "";
@@ -65,43 +66,43 @@ class _InputState extends State<Input> {
     switch (text) {
       case "Firstname":
         {
-          hintReturn = "Ex: Jorge";
+          hintReturn = "firstname_ht_sup".i18n();
           _updateHint(hintReturn);
         }
         break;
       case "Lastname":
         {
-          hintReturn = "Ex: Silva";
+          hintReturn = "lastname_ht_sup".i18n();
           _updateHint(hintReturn);
         }
         break;
       case "CPF":
         {
-          hintReturn = "123.456.789-01";
+          hintReturn = "CPF_ht".i18n();
           _updateHint(hintReturn);
         }
         break;
       case "Username":
         {
-          hintReturn = "Nome123";
+          hintReturn = "username_ht_sup".i18n();
           _updateHint(hintReturn);
         }
         break;
       case "Password":
         {
-          hintReturn = "Minha_senha123";
+          hintReturn = "password_ht_sup".i18n();
           _updateHint(hintReturn);
         }
         break;
       case "E-mail":
         {
-          hintReturn = "example@example.com";
+          hintReturn = "email_ht".i18n();
           _updateHint(hintReturn);
         }
         break;
       case "Phone":
         {
-          hintReturn = "(42)14565-1234";
+          hintReturn = "phone_ht".i18n();
           _updateHint(hintReturn);
         }
     }

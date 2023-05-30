@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_container.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:newbankapp/src/component/newbank_text.dart';
@@ -84,11 +85,11 @@ class _UserHomeState extends State<UserHome> {
                     ),
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: NewBankText(
-                    "Olá, usuário",
-                    style: TextStyle(
+                  child: Text(
+                    "hello".i18n(),
+                    style: const TextStyle(
                       fontFamily: "Cormorant",
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -116,12 +117,12 @@ class _UserHomeState extends State<UserHome> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: NewBankText(
-                        "Saldo em conta corrente: ",
-                        style: TextStyle(
+                        "balance".i18n(),
+                        style: const TextStyle(
                           // fontFamily: "Cormorant",
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
@@ -198,11 +199,11 @@ class _UserHomeState extends State<UserHome> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8.0),
               child: NewBankText(
-                "Valor Guardado Atual:",
-                style: TextStyle(
+                "saved_m".i18n(),
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
                   color: Colors.white,
@@ -234,11 +235,11 @@ class _UserHomeState extends State<UserHome> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(8.0),
                     child: NewBankText(
-                      "Guardar dinheiro",
-                      style: TextStyle(
+                      "invest".i18n(),
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: Colors.white,
@@ -252,8 +253,8 @@ class _UserHomeState extends State<UserHome> {
                         child: TextFormField(
                           controller: saveController,
                           decoration: InputDecoration(
-                            labelText: "Digite o valor que será guardado:",
-                            hintText: "Exemplo: 42.50",
+                            labelText: "enter".i18n(),
+                            hintText: "example".i18n(),
                             hintStyle: TextStyle(
                               color: Colors.white.withOpacity(0.5),
                             ),
@@ -307,9 +308,9 @@ class _UserHomeState extends State<UserHome> {
                               color: Colors.indigo,
                             ),
                           ),
-                          content: const NewBankText(
-                            'Valor maior do que o saldo em conta!',
-                            style: TextStyle(
+                          content: NewBankText(
+                            "greater".i18n(),
+                            style: const TextStyle(
                               color: Colors.indigo,
                             ),
                           ),
@@ -334,9 +335,9 @@ class _UserHomeState extends State<UserHome> {
               },
             );
           },
-          child: const NewBankText(
-            "Guardar",
-            style: TextStyle(
+          child: NewBankText(
+            "invest_btn".i18n(),
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.white,
             ),
@@ -357,11 +358,11 @@ class _UserHomeState extends State<UserHome> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(8.0),
                     child: NewBankText(
-                      "Resgatar dinheiro",
-                      style: TextStyle(
+                      "withdraw".i18n(),
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: Colors.white,
@@ -375,8 +376,8 @@ class _UserHomeState extends State<UserHome> {
                         child: TextFormField(
                           controller: retrieveController,
                           decoration: InputDecoration(
-                            labelText: "Digite o valor que será resgatado:",
-                            hintText: "Exemplo: 42.50",
+                            labelText: "enter".i18n(),
+                            hintText: "example".i18n(),
                             hintStyle: TextStyle(
                               color: Colors.white.withOpacity(0.5),
                             ),
@@ -421,17 +422,17 @@ class _UserHomeState extends State<UserHome> {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: const NewBankText(
-                          'Aviso',
+                        title: NewBankText(
+                          "warning".i18n(),
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.indigo,
                           ),
                         ),
-                        content: const NewBankText(
-                          'Valor maior do que o valor guardado!',
-                          style: TextStyle(
+                        content: NewBankText(
+                          "warnin_txt".i18n(),
+                          style: const TextStyle(
                             color: Colors.indigo,
                           ),
                         ),
@@ -455,9 +456,9 @@ class _UserHomeState extends State<UserHome> {
               }
             });
           },
-          child: const NewBankText(
-            "Resgatar",
-            style: TextStyle(
+          child: NewBankText(
+            "withdraw_btn".i18n(),
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.white,
             ),

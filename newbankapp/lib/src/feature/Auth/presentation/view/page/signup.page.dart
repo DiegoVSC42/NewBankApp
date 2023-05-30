@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:newbankapp/src/component/newbank_textbutton.dart';
 
@@ -55,43 +56,43 @@ class _SignUpState extends State<SignUp> {
                     ),
 
                     Input(
-                      label: "Firstname",
+                      label: "firstname".i18n(),
                       ctrl: firstNameTec,
                     ),
                     Input(
-                      label: "Lastname",
+                      label: "lastname".i18n(),
                       ctrl: lastNameTec,
                     ),
                     Input(
-                      label: "CPF",
+                      label: "CPF".i18n(),
                       ctrl: cpfTec,
                     ),
                     Input(
-                      label: "E-mail",
+                      label: "email".i18n(),
                       ctrl: emailTec,
                     ),
                     Input(
-                      label: "Phone",
+                      label: "phone".i18n(),
                       ctrl: phoneTec,
                     ),
 
                     Input(
-                      label: "Username",
+                      label: "username_sup".i18n(),
                       ctrl: usernameTec,
                     ),
 
                     Input(
-                      label: "Password",
+                      label: "password_sup".i18n(),
                       ctrl: passwordTec,
                     ),
 
                     NewBankTextButton(
                       onPressed: () {},
-                      child: const NewBankText(
-                        "Registrar",
+                      child: NewBankText(
+                        "sign_up_sup".i18n(),
                         style: TextStyle(
                           fontSize: 16,
-                          color: Colors.indigo,
+                          color: Colors.white,
                         ),
                       ),
                     ),

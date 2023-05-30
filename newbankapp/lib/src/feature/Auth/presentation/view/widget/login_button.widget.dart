@@ -25,8 +25,7 @@ class LoginButton extends StatefulWidget {
 class _LoginButtonState extends State<LoginButton> {
   void login() async {
     print("logando usuário");
-    var url = Uri.parse(
-        'https://localhost:7242/api/Auth/login'); // Replace with your own endpoint
+    var url = Uri.parse('https://10.0.2.2:7242/api/Auth/login');
 
     var response = await http.post(url,
         headers: {
@@ -37,13 +36,19 @@ class _LoginButtonState extends State<LoginButton> {
 
     if (response.statusCode == 200) {
       var user = jsonDecode(response.body);
-      navigate(user['firstame'], user['lastName'], user['balance']);
+      print("Nome Completo: " + user['firstame'] + " " + user['lastName']);
+      print("Saldo: ");
+      print(user['balance']);
+      print("UserToken: " + user['userToken']);
+      navigate(user['firstame'], user['lastName'], user['balance'],
+          user['userToken']);
     } else {
       print(response.body);
     }
   }
 
-  void navigate(String firstName, String lastName, int balance) {
+  void navigate(
+      String firstName, String lastName, int balance, String userToken) {
     Navigator.push(
       context,
       MaterialPageRoute(

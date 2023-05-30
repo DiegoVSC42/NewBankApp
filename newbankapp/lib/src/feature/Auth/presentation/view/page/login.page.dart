@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:newbankapp/src/component/newbank_text.dart';
@@ -52,8 +53,8 @@ class _LoginState extends State<Login> {
                         Icons.person,
                         color: Colors.white,
                       ),
-                      labelText: "Nome de usuário",
-                      hintText: "Ex: SeuNome123",
+                      labelText: "username_lgn".i18n(),
+                      hintText: "username_ht_lgn".i18n(),
                       labelStyle: const TextStyle(
                         color: Colors.white,
                       ),
@@ -75,12 +76,12 @@ class _LoginState extends State<Login> {
                       });
                     },
                     keyboardType: TextInputType.name,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.lock,
                         color: Colors.white,
                       ),
-                      labelText: "Senha",
+                      labelText: "password_lgn".i18n(),
                       labelStyle: TextStyle(
                         color: Colors.white,
                       ),
