@@ -15,11 +15,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  // VERIFIQUE REGEX EM
+  // https://regexr.com/
+
   var firstNameTec = TextEditingController();
 
   var lastNameTec = TextEditingController();
-
-  var usernameTec = TextEditingController();
 
   var cpfTec = TextEditingController();
 
@@ -27,6 +28,9 @@ class _SignUpState extends State<SignUp> {
 
   var phoneTec = TextEditingController();
 
+  var usernameTec = TextEditingController();
+
+  // Minimum eight characters, at least one letter, one number and one special character:
   var passwordTec = TextEditingController();
 
   @override
@@ -58,32 +62,48 @@ class _SignUpState extends State<SignUp> {
                     Input(
                       label: "firstname".i18n(),
                       ctrl: firstNameTec,
+                      regex: RegExp(r'\w+'),
+                      obscureText: false,
                     ),
                     Input(
                       label: "lastname".i18n(),
                       ctrl: lastNameTec,
+                      regex: RegExp(r'\w+'),
+                      obscureText: false,
                     ),
                     Input(
                       label: "CPF".i18n(),
                       ctrl: cpfTec,
+                      regex: RegExp(r'\d{11}'),
+                      obscureText: false,
                     ),
                     Input(
                       label: "email".i18n(),
                       ctrl: emailTec,
+                      regex: RegExp(
+                          r'(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'),
+                      obscureText: false,
                     ),
                     Input(
                       label: "phone".i18n(),
                       ctrl: phoneTec,
+                      regex: RegExp(r'\d{11}'),
+                      obscureText: false,
                     ),
 
                     Input(
                       label: "username_sup".i18n(),
                       ctrl: usernameTec,
+                      regex: RegExp(r'\w{4,}'),
+                      obscureText: false,
                     ),
 
                     Input(
                       label: "password_sup".i18n(),
                       ctrl: passwordTec,
+                      regex: RegExp(
+                          r'(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$'),
+                      obscureText: true,
                     ),
 
                     NewBankTextButton(

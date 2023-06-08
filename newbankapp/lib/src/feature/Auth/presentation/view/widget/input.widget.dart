@@ -4,10 +4,14 @@ import 'package:localization/localization.dart';
 class Input extends StatefulWidget {
   var label = "";
   var ctrl = TextEditingController();
+  var regex = RegExp(r"");
+  var obscureText = false;
 
   Input({
     required this.label,
     required this.ctrl,
+    required this.regex,
+    required this.obscureText,
     super.key,
   });
 
@@ -54,6 +58,16 @@ class _InputState extends State<Input> {
             onTap: () async {
               _hintMode(widget.label);
             },
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "${widget.label} cannot be empty";
+              }
+              if (widget.regex.hasMatch(value)) {
+                return null;
+              }
+              return "${widget.label} format mismatch";
+            },
+            obscureText: widget.obscureText,
           ),
         )
       ],
