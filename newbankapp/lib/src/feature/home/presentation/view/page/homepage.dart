@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../../component/newbank_text.dart';
-import '../widget/cards.dart';
-import '../widget/home.dart';
-import '../widget/transations.dart';
+
+import 'screens/cards.dart';
+import 'screens/home.dart';
+import 'screens/transations.dart';
 
 class HomePage extends StatefulWidget {
   var firstName = "";
@@ -51,50 +51,11 @@ class _HomePageState extends State<HomePage> {
       userToken: widget.userToken,
     );
 
-    Future jwtFunc(
-        String firstName, String lastName, int balance, String userToken) {
-      return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const NewBankText(
-              'JWT',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.indigo,
-              ),
-            ),
-            content: Text(
-              userToken,
-              style: TextStyle(
-                color: Colors.black,
-              ),
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const NewBankText(
-                  'OK',
-                  style: TextStyle(
-                    color: Colors.indigo,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
-
     _pages[1] = userHomeWidget;
 
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        fixedColor: Colors.white,
         backgroundColor: Colors.indigo,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
@@ -108,13 +69,6 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.credit_card), label: 'Cartões'),
         ],
       ),
-      // floatingActionButton: FloatingActionButton(
-      //     backgroundColor: Colors.indigo,
-      //     onPressed: () {
-      //       jwtFunc(widget.firstName, widget.lastName, widget.balance,
-      //           widget.userToken);
-      //       print("JWT" + widget.userToken);
-      //     }),
     );
   }
 }

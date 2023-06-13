@@ -42,3 +42,8 @@ flutter:
     - family: Cormorant
       fonts:
         - asset: lib/assets/fonts/CormorantGaramond.ttf
+    - family: Raleway
+      fonts:
+        - asset: lib/assets/fonts/Raleway-Regular.ttf
+        - asset: lib/assets/fonts/Raleway-Bold.ttf
+          weight: 700

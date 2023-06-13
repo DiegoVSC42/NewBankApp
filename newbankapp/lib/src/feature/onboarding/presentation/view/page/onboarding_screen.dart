@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:newbankapp/src/feature/auth/presentation/view/page/auth.page.dart';
+import 'package:newbankapp/src/feature/auth/presentation/view/page/screens/auth.dart';
 import 'package:localization/localization.dart';
 
 // StatefulWidget
@@ -30,27 +30,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override //Widget para aplicar o tamanho da fonte e a cor da Frase
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 28.0, color: Colors.white);
+    const bodyStyle = TextStyle(
+      fontSize: 28.0,
+    );
 
     const pageDecoration = PageDecoration(
       //Tamanho e cor da Fonte e o negrito do título
       titleTextStyle: TextStyle(
         fontSize: 39.0,
-        color: Colors.white,
         fontWeight: FontWeight.w700,
         height: 2.3,
       ),
       bodyTextStyle: bodyStyle,
-      bodyPadding:
-          EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 16.0), // Posição da Frase
-      pageColor: Colors.indigo, //Cor do Fundo da página
+      bodyPadding: EdgeInsets.fromLTRB(
+          16.0, 10.0, 16.0, 16.0), // Posição da Frase //Cor do Fundo da página
       imagePadding: EdgeInsets.zero,
     );
 
     return IntroductionScreen(
       animationDuration: 350,
       key: introKey,
-      globalBackgroundColor: Colors.indigo,
       pages: [
         // Cada página da onboard (Page View Model)
         PageViewModel(
@@ -78,7 +77,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: Text(
                     "phrase_ob3".i18n(),
                     style: const TextStyle(
-                      color: Colors.white,
                       fontSize: 28,
                     ),
                   ),
@@ -91,9 +89,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 // Aplica um estilo a Barra
                 style: ElevatedButton.styleFrom(
                   // Elevado
-                  minimumSize:
-                      const Size.fromHeight(80), //Aumenta a barra (Vertical)
-                  backgroundColor: Colors.white, // Muda a cor
+                  minimumSize: const Size.fromHeight(
+                      80), //Aumenta a barra (Vertical)// Muda a cor
                   //Aplica o estido de borda da barra
                   shape: RoundedRectangleBorder(
                     borderRadius:
@@ -104,7 +101,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: Text(
                   "phrase_ob4".i18n(),
                   style: const TextStyle(
-                    color: Colors.indigo,
                     fontSize: 16.0,
                   ), //Cor do texto
                 ),
@@ -125,13 +121,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       nextFlex: 1, // Posição de quando aperta em Próximo
       // Botão de Pular
       skip: Text('skip'.i18n(),
-          style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white)),
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+          )),
       // Botão de Voltar
       back: Text('back'.i18n(),
-          style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white)),
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+          )),
       // Botão de Próximo
       next: Text('next'.i18n(),
-          style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white)),
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+          )),
       //
       curve: Curves.linear, //Estilo de passagem de páginas
       //
