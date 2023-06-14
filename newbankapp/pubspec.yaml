@@ -19,6 +19,7 @@ dependencies:
   flutter_modular: ^5.0.3
   dio: ^5.1.0
   introduction_screen: ^3.1.8
+  flip_card: ^0.7.0
 
 dev_dependencies:
   flutter_test:
