@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
+import 'package:newbankapp/src/component/newbank_box_card.dart';
 
 class UserCards extends StatelessWidget {
   const UserCards({super.key});
@@ -10,13 +11,42 @@ class UserCards extends StatelessWidget {
     return Scaffold(
       appBar: NewBankBar(),
       backgroundColor: Colors.transparent,
-      body: Container(
-        color: Colors.transparent,
-        height: 600,
-        width: 400,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: ListView(children: [
+          Container(
+            decoration: BoxDecoration(
+                color: Theme.of(context).cardColor,
+                borderRadius: BorderRadius.circular(15)),
+            child: SizedBox(
+              width: 100,
+              height: 230,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 80,
+                      height: 80,
+                      child: Icon(Icons.lock_outline),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.grey.withOpacity(.5),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Cartão Virtual não gerado"),
+                  )
+                ],
+              ),
+            ),
+          ),
           buildPaymentCardWidget(context, Color(0xF25FFFFF), Color(0xFF2508FF)),
           buildPaymentCardWidget(context, Color(0xFFFF9800), Color(0xFF9C2700)),
+          buildPaymentCardWidget(context, Color(0xFF76FF03), Color(0xFF9C27B0)),
           buildPaymentCardWidget(context, Color(0xFF76FF03), Color(0xFF9C27B0)),
         ]),
       ),

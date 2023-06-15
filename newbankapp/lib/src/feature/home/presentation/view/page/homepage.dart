@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const NewBankText(
+            title: const Text(
               'JWT',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
             ),
             actions: <Widget>[
               TextButton(
-                child: const NewBankText(
+                child: const Text(
                   'OK',
                   style: TextStyle(
                     color: Colors.indigo,

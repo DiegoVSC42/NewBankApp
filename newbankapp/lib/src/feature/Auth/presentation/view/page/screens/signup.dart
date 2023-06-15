@@ -42,7 +42,7 @@ class _SignUpState extends State<SignUp> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Sign Up",
+                "sign_up".i18n(),
                 style: TextStyle(
                   fontSize: 32,
                   fontFamily: "Big Shoulders Display",
