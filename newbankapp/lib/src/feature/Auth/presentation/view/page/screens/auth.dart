@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:newbankapp/src/component/newbank_container.dart';
+import 'package:newbankapp/src/component/newbank_box_card.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
-import 'package:newbankapp/src/component/newbank_text.dart';
-import 'package:newbankapp/src/component/newbank_textbutton.dart';
 import 'package:newbankapp/src/feature/home/presentation/view/page/homepage.dart';
 
-import 'login.page.dart';
-import 'signup.page.dart';
+import 'login.dart';
+import 'signup.dart';
 
 class Auth extends StatelessWidget {
   const Auth({super.key});
@@ -17,53 +15,55 @@ class Auth extends StatelessWidget {
     return Scaffold(
       appBar: NewBankBar(),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: NewBankContainer(
-            height: 300,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  NewBankText("auth_acc".i18n()),
-                  NewBankTextButton(
+        child: SizedBox(
+          width: 480,
+          height: 240,
+          child: NewBankBoxCard(
+            boxContent: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("auth_acc".i18n()),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const Login()),
                       );
                     },
-                    child: const NewBankText(
+                    style: ButtonStyle(
+                        minimumSize: MaterialStateProperty.all(Size(240, 40))),
+                    child: const Text(
                       "Login",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 16.0),
-                    child: NewBankText("create".i18n()),
-                  ),
-                  NewBankTextButton(
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("create".i18n()),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const SignUp()),
                       );
                     },
-                    child: NewBankText(
+                    style: ButtonStyle(
+                        minimumSize: MaterialStateProperty.all(Size(240, 40))),
+                    child: Text(
                       "sign_up".i18n(),
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

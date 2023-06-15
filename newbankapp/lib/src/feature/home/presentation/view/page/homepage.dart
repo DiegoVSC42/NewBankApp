@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../../component/newbank_text.dart';
-import '../widget/cards.dart';
-import '../widget/home.dart';
-import '../widget/transations.dart';
+
+import 'screens/cards.dart';
+import 'screens/home.dart';
+import 'screens/transations.dart';
 
 class HomePage extends StatefulWidget {
   var firstName = "";
@@ -94,7 +94,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        fixedColor: Colors.white,
         backgroundColor: Colors.indigo,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
@@ -108,13 +107,6 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.credit_card), label: 'Cartões'),
         ],
       ),
-      // floatingActionButton: FloatingActionButton(
-      //     backgroundColor: Colors.indigo,
-      //     onPressed: () {
-      //       jwtFunc(widget.firstName, widget.lastName, widget.balance,
-      //           widget.userToken);
-      //       print("JWT" + widget.userToken);
-      //     }),
     );
   }
 }

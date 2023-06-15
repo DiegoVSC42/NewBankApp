@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:newbankapp/src/feature/home/home_module.dart';
 
-import '../../../../../component/newbank_text.dart';
 import '../../../../../component/newbank_textButton.dart';
 import '../../../../home/presentation/view/page/homepage.dart';
 
@@ -63,15 +62,12 @@ class _LoginButtonState extends State<LoginButton> {
 
   @override
   Widget build(BuildContext context) {
-    return NewBankTextButton(
+    return ElevatedButton(
       onPressed: login,
-      child: const NewBankText(
+      child: const Text(
         "Login",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-        ),
       ),
+      style: ButtonStyle(minimumSize: MaterialStateProperty.all(Size(240, 40))),
     );
   }
 }

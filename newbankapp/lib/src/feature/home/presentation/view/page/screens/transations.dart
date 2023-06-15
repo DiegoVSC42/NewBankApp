@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 
-class UserCards extends StatelessWidget {
-  const UserCards({super.key});
+class UserTransations extends StatelessWidget {
+  const UserTransations({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class UserCards extends StatelessWidget {
       backgroundColor: Colors.white30,
       body: const Center(
         child: Text(
-          'Cards',
+          'Transations',
           style: TextStyle(
             fontSize: 48,
           ),

@@ -19,6 +19,7 @@ dependencies:
   flutter_modular: ^5.0.3
   dio: ^5.1.0
   introduction_screen: ^3.1.8
+  flip_card: ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -42,3 +43,8 @@ flutter:
     - family: Cormorant
       fonts:
         - asset: lib/assets/fonts/CormorantGaramond.ttf
+    - family: Raleway
+      fonts:
+        - asset: lib/assets/fonts/Raleway-Regular.ttf
+        - asset: lib/assets/fonts/Raleway-Bold.ttf
+          weight: 700
