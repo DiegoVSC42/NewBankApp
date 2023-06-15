@@ -7,16 +7,32 @@ class UserTransations extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NewBankBar(),
-      backgroundColor: Colors.white30,
-      body: const Center(
-        child: Text(
-          'Transations',
-          style: TextStyle(
-            fontSize: 48,
+        appBar: NewBankBar(),
+        backgroundColor: Colors.white30,
+        body: Center(
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  "Qual é o valor da  transferência?",
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(20),
+                child: Text("Saldo disponível em conta: R\$ 18,54"),
+              ),
+              SizedBox(
+                width: 300,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

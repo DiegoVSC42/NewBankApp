@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
             ),
             content: Text(
               userToken,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
               ),
             ),
