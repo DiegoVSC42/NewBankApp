@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -14,13 +15,23 @@ class OnboardingScreen extends StatefulWidget {
 
 // Classe principal para onboard screen
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  final introKey = GlobalKey<IntroductionScreenState>();
+  PageController? _controller;
+  int currentIndex = 0;
+  double percentage = 0.25;
 
-  @override // Remover barra de Status do Android (transparente)
+  //final introKey = GlobalKey<IntroductionScreenState>();
+
+  @override // InitState
   void initState() {
-    SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    _controller = PageController(initialPage: 0);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller!.dispose();
+    // Implementação dispose
+    super.dispose();
   }
 
 // Tamanho principal e geral das imagens de toda a onboard
@@ -49,7 +60,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
     return IntroductionScreen(
       animationDuration: 350,
-      key: introKey,
+      //key: introKey,
       pages: [
         // Cada página da onboard (Page View Model)
         PageViewModel(
@@ -114,29 +125,36 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ],
       //
-      showBackButton: true,
-      showSkipButton: false,
+      showBackButton: false,
+      showSkipButton: true,
       showDoneButton: false,
 
       nextFlex: 1, // Posição de quando aperta em Próximo
       // Botão de Pular
-      skip: Text('skip'.i18n(),
-          style: TextStyle(
-            fontWeight: FontWeight.w800,
-            color: Colors.white,
-          )),
+      skip: CupertinoButton(
+        onPressed: () {
+          openAuthScreen(context);
+        },
+        child: Text('skip'.i18n(),
+            style: const TextStyle(
+              fontWeight: FontWeight.w800,
+              color: Colors.white,
+            )),
+      ),
+
       // Botão de Voltar
       back: Text('back'.i18n(),
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w800,
             color: Colors.white,
           )),
       // Botão de Próximo
       next: Text('next'.i18n(),
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w800,
             color: Colors.white,
           )),
+
       //
       curve: Curves.linear, //Estilo de passagem de páginas
       //

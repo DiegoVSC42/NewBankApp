@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
-import 'package:newbankapp/src/component/newbank_box_card.dart';
+//import 'package:flutter_credit_card/flutter_credit_card.dart';
+//import 'package:newbankapp/src/component/newbank_box_card.dart';
 
 class UserCards extends StatelessWidget {
   const UserCards({super.key});
@@ -36,8 +37,8 @@ class UserCards extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Text("Cartão Virtual não gerado"),
                   )
                 ],
@@ -46,7 +47,6 @@ class UserCards extends StatelessWidget {
           ),
           buildPaymentCardWidget(context, Color(0xF25FFFFF), Color(0xFF2508FF)),
           buildPaymentCardWidget(context, Color(0xFFFF9800), Color(0xFF9C2700)),
-          buildPaymentCardWidget(context, Color(0xFF76FF03), Color(0xFF9C27B0)),
           buildPaymentCardWidget(context, Color(0xFF76FF03), Color(0xFF9C27B0)),
         ]),
       ),
