@@ -17,7 +17,7 @@ class Auth extends StatelessWidget {
       body: Center(
         child: SizedBox(
           width: 480,
-          height: 240,
+          height: 320,
           child: NewBankBoxCard(
             boxContent: Column(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -26,7 +26,7 @@ class _LoginState extends State<Login> {
       body: Center(
         child: SizedBox(
           width: 480,
-          height: 240,
+          height: 320,
           child: Builder(builder: (context) {
             return NewBankBoxCard(
               boxContent: Padding(

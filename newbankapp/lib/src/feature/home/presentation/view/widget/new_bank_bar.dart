@@ -50,6 +50,6 @@ PreferredSizeWidget homeBar() {
         ),
       ),
     ),
-    automaticallyImplyLeading: true,
+    automaticallyImplyLeading: false,
   );
 }

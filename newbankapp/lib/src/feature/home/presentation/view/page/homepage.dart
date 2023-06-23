@@ -51,44 +51,6 @@ class _HomePageState extends State<HomePage> {
       userToken: widget.userToken,
     );
 
-    Future jwtFunc(
-        String firstName, String lastName, int balance, String userToken) {
-      return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text(
-              'JWT',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.indigo,
-              ),
-            ),
-            content: Text(
-              userToken,
-              style: const TextStyle(
-                color: Colors.black,
-              ),
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text(
-                  'OK',
-                  style: TextStyle(
-                    color: Colors.indigo,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
-
     _pages[1] = userHomeWidget;
 
     return Scaffold(
