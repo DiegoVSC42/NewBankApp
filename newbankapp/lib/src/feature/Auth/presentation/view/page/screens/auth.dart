@@ -13,7 +13,9 @@ class Auth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NewBankBar(),
+      appBar: NewBankBar(
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: SizedBox(
           width: 480,
