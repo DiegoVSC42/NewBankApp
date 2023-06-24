@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:localization/localization.dart';
-import 'package:newbankapp/src/component/newbank_appbar.dart';
 
-PreferredSizeWidget homeBar() {
-  return NewBankBar(
+PreferredSizeWidget HomeBar(Svg image, String username) {
+  return AppBar(
     title: const Text(
       "NW",
       style: TextStyle(
@@ -28,15 +27,15 @@ PreferredSizeWidget homeBar() {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.grey[400],
-                  image: const DecorationImage(
-                    image: Svg("lib/assets/images/user_placeholder.svg"),
+                  image: DecorationImage(
+                    image: image,
                   ),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "hello".i18n(),
+                  "hello".i18n() + " " + username,
                   style: const TextStyle(
                     fontFamily: "Cormorant",
                     fontWeight: FontWeight.bold,
@@ -50,6 +49,7 @@ PreferredSizeWidget homeBar() {
         ),
       ),
     ),
-    automaticallyImplyLeading: false,
+    backgroundColor: Colors.indigo,
+    automaticallyImplyLeading: true,
   );
 }

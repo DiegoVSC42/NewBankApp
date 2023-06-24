@@ -8,7 +8,7 @@
     "skip": "Skip",
     "back": "Back",
     "next": "Next",
-    "hello": "Hello, user",
+    "hello": "Hello,",
     "balance": "Account Balance",
     "saved_m": "Money Saved",
     "invest": "Invest Your Money",
@@ -20,9 +20,9 @@
     "warning_txt": "Value greater than the value saved!",
     "withdraw": "Withdraw Your Money",
     "withdraw_btn": "Withdraw",
-    "auth_acc" : "Already Have an Account?",
-    "create" : "Create Account",
-    "sign_up" : "Sign Up",
+    "auth_acc": "Already Have an Account?",
+    "create": "Create Account",
+    "sign_up": "Sign Up",
     "username_lgn": "Username",
     "username_ht_lgn": "Ex: YourName123",
     "password_lgn": "Password",
@@ -40,8 +40,15 @@
     "username_ht_sup": "Name123",
     "password_sup": "Password",
     "password_ht_sup": "MyPassword123",
-    "sign_up_sup": "Sign Up"
-
-
-    
+    "sign_up_sup": "Sign Up",
+    "agency": "Agency",
+    "account": "Account",
+    "bank": "Bank",
+    "payment": "Payments",
+    "institution": "Institution of Payment",
+    "go_back": "Go Back",
+    "leave_session": "Leave Session",
+    "transaction": "Transactions",
+    "home": "Home",
+    "cards": "Cards"
 }

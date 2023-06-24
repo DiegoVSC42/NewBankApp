@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_box_card.dart';
-import 'package:newbankapp/src/feature/home/presentation/view/widget/account_balance.dart';
-import 'package:newbankapp/src/feature/home/presentation/view/widget/invest_value.dart';
-import 'package:newbankapp/src/feature/home/presentation/view/widget/new_bank_bar.dart';
-import 'package:newbankapp/src/feature/home/presentation/view/widget/retrieve_value.dart';
-import 'package:newbankapp/src/feature/home/presentation/view/widget/saved_value.dart';
+import 'package:newbankapp/src/feature/home/presentation/view/widget/home/account_balance.dart';
+import 'package:newbankapp/src/feature/home/presentation/view/widget/home/drawer/home_drawer.dart';
+import 'package:newbankapp/src/feature/home/presentation/view/widget/home/invest_value.dart';
+import 'package:newbankapp/src/feature/home/presentation/view/widget/home/retrieve_value.dart';
+import 'package:newbankapp/src/feature/home/presentation/view/widget/home/saved_value.dart';
+import 'package:newbankapp/src/feature/home/presentation/view/widget/home/home_bar.dart';
 
 class UserHome extends StatefulWidget {
   var firstName = "";
@@ -35,7 +37,11 @@ class _UserHomeState extends State<UserHome> {
   Widget build(BuildContext context) {
     String showedVaultValue = (vaultValue).toStringAsFixed(2);
     return Scaffold(
-      appBar: homeBar(),
+      appBar: HomeBar(
+        //TODO colocar valor do backend
+        Svg("lib/assets/images/user_placeholder.svg"),
+        "user",
+      ),
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
@@ -64,6 +70,12 @@ class _UserHomeState extends State<UserHome> {
             ),
           ),
         ],
+      ),
+      drawer: HomeDrawer(
+        //TODO Trocar por dados do backend
+        image: Svg("lib/assets/images/user_placeholder.svg"),
+        username: "User",
+        accountNumber: "0000000-0",
       ),
     );
   }

@@ -13,10 +13,7 @@ class AuthModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute(
-          '/',
-          child: (_, __) => AuthPage(),
-        ),
+        ChildRoute('/', child: (_, __) => OnboardingScreen()),
       ];
 
   /* @override
