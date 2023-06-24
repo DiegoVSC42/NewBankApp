@@ -50,5 +50,9 @@
     "leave_session": "Leave Session",
     "transaction": "Transactions",
     "home": "Home",
-    "cards": "Cards"
+    "cards": "Cards",
+    "field": " ",
+    "cannot_be_null": " field cannot be null",
+    "format_of": "Invalid ",
+    "invalid": " format"
 }
