@@ -25,7 +25,9 @@ class _FormCardPageState extends State<FormCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NewBankBar(),
+      appBar: NewBankBar(
+        automaticallyImplyLeading: true,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
