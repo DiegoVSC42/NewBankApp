@@ -64,6 +64,11 @@ class _RetrieveValueState extends State<RetrieveValue> {
                   widget
                       .updateVaultValue(-double.parse(retrieveController.text));
                   widget.updateBalance(double.parse(retrieveController.text));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("retrieved".i18n()),
+                    ),
+                  );
                 } else {
                   showDialog(
                     context: context,
@@ -90,6 +95,36 @@ class _RetrieveValueState extends State<RetrieveValue> {
                     },
                   );
                 }
+              } else {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text(
+                        'Warning'.i18n(),
+                        textAlign: TextAlign.center,
+                      ),
+                      content: Text(
+                        "zero".i18n(),
+                        textAlign: TextAlign.center,
+                      ),
+                      actions: <Widget>[
+                        Center(
+                          child: Center(
+                            child: ElevatedButton(
+                              child: Text(
+                                'OK',
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                );
               }
             });
           },

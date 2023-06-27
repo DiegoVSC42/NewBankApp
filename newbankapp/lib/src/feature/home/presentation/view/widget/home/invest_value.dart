@@ -69,13 +69,18 @@ class _InvestValueState extends State<InvestValue> {
                     // });
                     widget.updateVaultValue(double.parse(saveController.text));
                     widget.updateBalance(-double.parse(saveController.text));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("saved".i18n()),
+                      ),
+                    );
                   } else {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
                           title: Text(
-                            'Aviso',
+                            'warning'.i18n(),
                             textAlign: TextAlign.center,
                           ),
                           content: Text(
@@ -99,6 +104,36 @@ class _InvestValueState extends State<InvestValue> {
                       },
                     );
                   }
+                } else {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text(
+                          'warning'.i18n(),
+                          textAlign: TextAlign.center,
+                        ),
+                        content: Text(
+                          "zero".i18n(),
+                          textAlign: TextAlign.center,
+                        ),
+                        actions: <Widget>[
+                          Center(
+                            child: Center(
+                              child: ElevatedButton(
+                                child: Text(
+                                  'OK',
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 }
               },
             );
