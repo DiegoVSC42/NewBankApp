@@ -2,8 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:newbankapp/services/prefs_service.dart';
 import 'package:newbankapp/src/feature/auth/presentation/view/page/screens/auth.dart';
 import 'package:localization/localization.dart';
+import 'package:newbankapp/src/feature/home/presentation/view/page/homepage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // StatefulWidget
 class OnboardingScreen extends StatefulWidget {
@@ -96,6 +99,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ElevatedButton(
                 onPressed: () {
                   openAuthScreen(context);
+                  _skipOnboarding();
                 },
                 // Aplica um estilo a Barra
                 style: ElevatedButton.styleFrom(
@@ -134,6 +138,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       skip: CupertinoButton(
         onPressed: () {
           openAuthScreen(context);
+          _skipOnboarding();
         },
         child: Text('skip'.i18n(),
             style: const TextStyle(
@@ -178,8 +183,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
 //Criar uma função para abrir a tela inicial, mesma função para chamar no botão pular
 void openAuthScreen(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => Auth()),
+  Future.wait([
+    PrefsService.isAuth(),
+    // Future.delayed(Duration(seconds: 3)),
+  ]).then(
+    (value) => value[0]
+        ? Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => HomePage(
+                    firstName: "firstname",
+                    lastName: "lastname",
+                    balance: 2048,
+                    userToken: "teste")),
+          )
+        : Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Auth(),
+            ),
+          ),
   );
+}
+
+_skipOnboarding() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setBool("FIRST_TIME", false);
 }
