@@ -6,14 +6,17 @@ class NewBankBoxCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Ink(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        boxShadow: kElevationToShadow[3],
-        borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).cardColor,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Ink(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          boxShadow: kElevationToShadow[3],
+          borderRadius: BorderRadius.circular(10),
+          color: Theme.of(context).cardColor,
+        ),
+        child: boxContent,
       ),
-      child: boxContent,
     );
   }
 }

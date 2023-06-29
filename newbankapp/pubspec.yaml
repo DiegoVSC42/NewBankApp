@@ -20,6 +20,10 @@ dependencies:
   dio: ^5.1.0
   introduction_screen: ^3.1.8
   flip_card: ^0.7.0
+  flutter_credit_card: ^3.0.6
+  shared_preferences: ^2.1.2
+  flutter_native_splash: ^2.3.1
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -48,3 +52,12 @@ flutter:
         - asset: lib/assets/fonts/Raleway-Regular.ttf
         - asset: lib/assets/fonts/Raleway-Bold.ttf
           weight: 700
+
+flutter_native_splash:
+    color: "#3F51B5"
+    image: "lib/assets/app/splash.png"
+    androuid: true
+
+flutter_icons:
+  image_path: "lib/assets/app/icon.png"
+  android: "launcher_icon"

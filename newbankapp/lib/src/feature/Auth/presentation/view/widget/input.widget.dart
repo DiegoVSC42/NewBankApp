@@ -58,14 +58,12 @@ class _InputState extends State<Input> {
             onTap: () async {
               _hintMode(widget.label);
             },
-            validator: (value) {
+            validator: (String? value) {
               if (value == null || value.isEmpty) {
-                return "${widget.label} cannot be empty";
+                return "field".i18n() + widget.label + "cannot_be_null".i18n();
+              } else if (!validators(value, widget.regex)) {
+                return "format_of".i18n() + widget.label + "invalid".i18n();
               }
-              if (widget.regex.hasMatch(value)) {
-                return null;
-              }
-              return "${widget.label} format mismatch";
             },
             obscureText: widget.obscureText,
           ),
@@ -126,5 +124,13 @@ class _InputState extends State<Input> {
     setState(() {
       text = hintReturn;
     });
+  }
+
+  bool validators(var value, RegExp exp) {
+    Iterable<Match> matches = exp.allMatches(value);
+    if (matches.isEmpty) {
+      return false;
+    }
+    return true;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 import 'screens/cards.dart';
 import 'screens/home.dart';
@@ -51,44 +52,6 @@ class _HomePageState extends State<HomePage> {
       userToken: widget.userToken,
     );
 
-    Future jwtFunc(
-        String firstName, String lastName, int balance, String userToken) {
-      return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text(
-              'JWT',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.indigo,
-              ),
-            ),
-            content: Text(
-              userToken,
-              style: const TextStyle(
-                color: Colors.black,
-              ),
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text(
-                  'OK',
-                  style: TextStyle(
-                    color: Colors.indigo,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
-
     _pages[1] = userHomeWidget;
 
     return Scaffold(
@@ -100,11 +63,19 @@ class _HomePageState extends State<HomePage> {
         showSelectedLabels: false,
         showUnselectedLabels: true,
         onTap: _navigateBottomNavBar,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.pix), label: 'Transações'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.credit_card), label: 'Cartões'),
+            icon: Icon(Icons.pix),
+            label: 'transaction'.i18n(),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'home'.i18n(),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.credit_card),
+            label: 'cards'.i18n(),
+          ),
         ],
       ),
     );

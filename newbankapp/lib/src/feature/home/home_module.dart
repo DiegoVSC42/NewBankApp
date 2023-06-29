@@ -21,7 +21,6 @@ class HomeModule extends Module {
         //         userToken: "a"),
         //   ),
         // ];
-        ChildRoute('/', child: (_, __) => OnboardingScreen()),
       ];
 
   /* @override

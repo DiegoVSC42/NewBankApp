@@ -22,11 +22,13 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NewBankBar(),
+      appBar: NewBankBar(
+        automaticallyImplyLeading: true,
+      ),
       body: Center(
         child: SizedBox(
           width: 480,
-          height: 240,
+          height: 320,
           child: Builder(builder: (context) {
             return NewBankBoxCard(
               boxContent: Padding(

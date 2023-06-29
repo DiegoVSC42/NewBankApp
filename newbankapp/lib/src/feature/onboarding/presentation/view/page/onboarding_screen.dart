@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:newbankapp/services/prefs_service.dart';
 import 'package:newbankapp/src/feature/auth/presentation/view/page/screens/auth.dart';
 import 'package:localization/localization.dart';
+import 'package:newbankapp/src/feature/home/presentation/view/page/homepage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // StatefulWidget
 class OnboardingScreen extends StatefulWidget {
@@ -14,13 +18,23 @@ class OnboardingScreen extends StatefulWidget {
 
 // Classe principal para onboard screen
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  final introKey = GlobalKey<IntroductionScreenState>();
+  PageController? _controller;
+  int currentIndex = 0;
+  double percentage = 0.25;
 
-  @override // Remover barra de Status do Android (transparente)
+  //final introKey = GlobalKey<IntroductionScreenState>();
+
+  @override // InitState
   void initState() {
-    SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    _controller = PageController(initialPage: 0);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller!.dispose();
+    // Implementação dispose
+    super.dispose();
   }
 
 // Tamanho principal e geral das imagens de toda a onboard
@@ -49,7 +63,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
     return IntroductionScreen(
       animationDuration: 350,
-      key: introKey,
+      //key: introKey,
       pages: [
         // Cada página da onboard (Page View Model)
         PageViewModel(
@@ -85,6 +99,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ElevatedButton(
                 onPressed: () {
                   openAuthScreen(context);
+                  _skipOnboarding();
                 },
                 // Aplica um estilo a Barra
                 style: ElevatedButton.styleFrom(
@@ -114,29 +129,37 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ],
       //
-      showBackButton: true,
-      showSkipButton: false,
+      showBackButton: false,
+      showSkipButton: true,
       showDoneButton: false,
 
       nextFlex: 1, // Posição de quando aperta em Próximo
       // Botão de Pular
-      skip: Text('skip'.i18n(),
-          style: TextStyle(
-            fontWeight: FontWeight.w800,
-            color: Colors.white,
-          )),
+      skip: CupertinoButton(
+        onPressed: () {
+          openAuthScreen(context);
+          _skipOnboarding();
+        },
+        child: Text('skip'.i18n(),
+            style: const TextStyle(
+              fontWeight: FontWeight.w800,
+              color: Colors.white,
+            )),
+      ),
+
       // Botão de Voltar
       back: Text('back'.i18n(),
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w800,
             color: Colors.white,
           )),
       // Botão de Próximo
       next: Text('next'.i18n(),
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w800,
             color: Colors.white,
           )),
+
       //
       curve: Curves.linear, //Estilo de passagem de páginas
       //
@@ -160,8 +183,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
 //Criar uma função para abrir a tela inicial, mesma função para chamar no botão pular
 void openAuthScreen(BuildContext context) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => Auth()),
+  Future.wait([
+    PrefsService.isAuth(),
+    // Future.delayed(Duration(seconds: 3)),
+  ]).then(
+    (value) => value[0]
+        ? Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => HomePage(
+                    firstName: "firstname",
+                    lastName: "lastname",
+                    balance: 2048,
+                    userToken: "teste")),
+          )
+        : Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Auth(),
+            ),
+          ),
   );
+}
+
+_skipOnboarding() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setBool("FIRST_TIME", false);
 }

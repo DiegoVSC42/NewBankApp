@@ -13,11 +13,13 @@ class Auth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NewBankBar(),
+      appBar: NewBankBar(
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: SizedBox(
           width: 480,
-          height: 240,
+          height: 320,
           child: NewBankBoxCard(
             boxContent: Column(
               mainAxisAlignment: MainAxisAlignment.center,

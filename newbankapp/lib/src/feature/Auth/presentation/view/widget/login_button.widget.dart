@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:newbankapp/services/prefs_service.dart';
 import 'package:newbankapp/src/feature/home/home_module.dart';
 
 import '../../../../home/presentation/view/page/homepage.dart';
@@ -40,6 +41,7 @@ class _LoginButtonState extends State<LoginButton> {
       print("UserToken: " + user['userToken']);
       navigate(user['firstame'], user['lastName'], user['balance'],
           user['userToken']);
+      PrefsService.save(widget.username);
     } else {
       print(response.body);
     }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
-import 'package:newbankapp/src/component/newbank_box_card.dart';
+//import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:newbankapp/src/component/newbank_formcard.dart';
 
 class UserCards extends StatelessWidget {
   const UserCards({super.key});
@@ -25,19 +26,19 @@ class UserCards extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Container(
                       width: 80,
                       height: 80,
-                      child: Icon(Icons.lock_outline),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.grey.withOpacity(.5),
                       ),
+                      child: const Icon(Icons.lock_outline),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Text("Cartão Virtual não gerado"),
                   )
                 ],
@@ -46,10 +47,18 @@ class UserCards extends StatelessWidget {
           ),
           buildPaymentCardWidget(context, Color(0xF25FFFFF), Color(0xFF2508FF)),
           buildPaymentCardWidget(context, Color(0xFFFF9800), Color(0xFF9C2700)),
-          buildPaymentCardWidget(context, Color(0xFF76FF03), Color(0xFF9C27B0)),
-          buildPaymentCardWidget(context, Color(0xFF76FF03), Color(0xFF9C27B0)),
+          buildPaymentCardWidget(context, Color(0xFF76FF03), Color(0xFF33691E)),
         ]),
       ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.indigo,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const FormCard()),
+            );
+          },
+          child: const Icon(color: Colors.white, Icons.add)),
     );
   }
 
@@ -106,7 +115,7 @@ class UserCards extends StatelessWidget {
               top: 20,
               left: 25,
               child: Text(
-                "DEMO BANK",
+                "NEW BANK",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),
@@ -122,7 +131,7 @@ class UserCards extends StatelessWidget {
               bottom: 20,
               left: 25,
               child: Text(
-                "VIJAY CREATIONS",
+                "NAME TEST CARD",
                 style: TextStyle(color: Colors.grey[200], fontSize: 14.5),
               ),
             ),
@@ -157,7 +166,7 @@ class UserCards extends StatelessWidget {
               top: 20,
               left: 25,
               child: Text(
-                "LOST OR STOLEN, PLEASE RETURN TO ANY BRANCH OF YOUR BANK.",
+                "LOST OR STOLEN, RETURN TO ANY BRANCH OF YOUR BANK.",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 11.0), // Estilo do texto do topo

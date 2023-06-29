@@ -15,6 +15,6 @@ class NewBankBar extends AppBar {
     super.centerTitle = true,
     super.bottom,
     super.backgroundColor = Colors.indigo,
-    super.automaticallyImplyLeading = true,
+    super.automaticallyImplyLeading = false,
   });
 }
