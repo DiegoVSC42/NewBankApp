@@ -24,8 +24,6 @@ class UserService {
 
     try {
       response = await http.post(url, headers: headers, body: body);
-      print(response.statusCode);
-      print(response.body);
     } catch (e) {
       rethrow;
     }
@@ -33,15 +31,15 @@ class UserService {
     return User.fromJson(response.body.toString());
   }
 
-  Future<User> logIn(String email, String password) async {
-    var url = Uri.parse('https://localhost:52741/api/user/login');
+  Future<User> logIn(String cpf, String password) async {
+    var url = Uri.parse('https://localhost:7242/api/Auth/login');
     var headers = {'Content-Type': 'application/json', 'accept': 'text/plain'};
     Response? response;
 
+    var body = json.encode({'cpf': cpf, 'password': password});
+
     try {
-      response = await http.post(url,
-          headers: headers,
-          body: json.encode({'email': email, 'password': password}));
+      response = await http.post(url, headers: headers, body: body);
     } catch (e) {
       rethrow;
     }

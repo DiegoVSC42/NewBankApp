@@ -33,7 +33,14 @@ abstract class UserStoreBase with Store {
   }
 
   @action
-  Future<void> login(String email, String password) async {}
+  Future<void> login(String cpf, String password) async {
+    try {
+      var response = await _service.logIn(cpf, password);
+      user = response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   @action
   Future<void> signOut(String email) async {

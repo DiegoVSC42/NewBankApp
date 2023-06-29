@@ -22,7 +22,7 @@ namespace NewBank.Domain.Services
 
       public async Task<UserResponse> Login(UserLoginRequest request)
       {
-         var user = await _userRepository.GetUser(request.Username);
+         var user = await _userRepository.GetUserByCpf(request.Cpf);
 
          if (user is null)
          {
@@ -37,7 +37,7 @@ namespace NewBank.Domain.Services
          try
          {
             var userToken = _authService.CreateToken(user);
-            await _userRepository.AssignToken(request.Username, userToken);
+            await _userRepository.AssignToken(request.Cpf, userToken);
             user.UserToken = userToken;
             return user.ToUserResponse();
          }

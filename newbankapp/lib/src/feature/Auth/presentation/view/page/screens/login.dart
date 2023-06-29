@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:newbankapp/src/component/newbank_box_card.dart';
-
 import 'package:newbankapp/src/feature/Auth/presentation/view/widget/login_button.widget.dart';
+import 'package:newbankapp/src/store/user_store.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../../home/presentation/view/page/homepage.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -13,10 +16,35 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final _formKey = GlobalKey<FormState>();
   var cpfCtrl = TextEditingController();
-  var username = "";
-  var password = "";
   var passwordCtrl = TextEditingController();
+
+  Future<void> loginUser() async {
+    // if (!_formKey.currentState!.validate()) {
+    //   return;
+    // }
+
+    try {
+      UserStore userStore = Provider.of<UserStore>(context, listen: false);
+      print(cpfCtrl.text);
+      print(passwordCtrl.text);
+
+      await userStore.login(cpfCtrl.text, passwordCtrl.text);
+
+      if (context.mounted) navigate();
+      const Text('Cadastro feito com sucesso!');
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  void navigate() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HomePage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,19 +66,14 @@ class _LoginState extends State<Login> {
                   children: [
                     TextFormField(
                       controller: cpfCtrl,
-                      onChanged: (value) {
-                        setState(() {
-                          username = value;
-                        });
-                      },
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(
                           Icons.person,
                           color: Colors.white,
                         ),
-                        labelText: "username_lgn".i18n(),
-                        hintText: "username_ht_lgn".i18n(),
+                        labelText: "CPF".i18n(),
+                        hintText: "CPF_ht".i18n(),
                         labelStyle: const TextStyle(
                           color: Colors.white,
                         ),
@@ -64,11 +87,6 @@ class _LoginState extends State<Login> {
                     ),
                     TextFormField(
                       controller: passwordCtrl,
-                      onChanged: (value) {
-                        setState(() {
-                          password = value;
-                        });
-                      },
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(
@@ -98,12 +116,5 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
-  }
-
-  void _updateUser(String usernameR, String passwordR) {
-    setState(() {
-      username = usernameR;
-      password = passwordR;
-    });
   }
 }

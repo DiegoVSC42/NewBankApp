@@ -1,8 +1,6 @@
 import 'dart:io';
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:newbankapp/src/store/user_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'app_module.dart';
 import 'app_widget.dart';

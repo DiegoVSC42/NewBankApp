@@ -25,21 +25,10 @@ class _SignUpState extends State<SignUp> {
   var usernameTec = TextEditingController();
   var passwordTec = TextEditingController();
 
-  // @override
-  // void dispose() {
-  //   firstNameTec.dispose();
-  //   lastNameTec.dispose();
-  //   cpfTec.dispose();
-  //   emailTec.dispose();
-  //   phoneTec.dispose();
-  //   passwordTec.dispose();
-  //   super.dispose();
-  // }
-
   Future<void> registerUser() async {
-    // if (!_formKey.currentState!.validate()) {
-    //   return;
-    // }
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
 
     try {
       UserStore userStore = Provider.of<UserStore>(context, listen: false);
@@ -69,7 +58,7 @@ class _SignUpState extends State<SignUp> {
       ),
       body: NewBankBoxCard(
         boxContent: Form(
-          key: formKey,
+          key: _formKey,
           child: ListView(
             children: [
               Padding(
@@ -132,15 +121,6 @@ class _SignUpState extends State<SignUp> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Input(
-                  label: "username_sup".i18n(),
-                  ctrl: usernameTec,
-                  regex: RegExp(r'\w{4,}'),
-                  obscureText: false,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Input(
                   label: "password_sup".i18n(),
                   ctrl: passwordTec,
                   regex: RegExp(
@@ -151,9 +131,7 @@ class _SignUpState extends State<SignUp> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
-                  onPressed: () {
-                    formKey.currentState?.validate();
-                  },
+                  onPressed: registerUser,
                   child: Text(
                     "sign_up_sup".i18n(),
                   ),

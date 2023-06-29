@@ -25,13 +25,13 @@ namespace NewBank.Infra.Repositories
          });
       }
 
-      public async Task AssignToken(string username, string userToken)
+      public async Task AssignToken(string cpf, string userToken)
       {
-         var query = @"UPDATE users SET userToken = @userToken WHERE username = @username";
+         var query = @"UPDATE users SET userToken = @userToken WHERE cpf = @cpf";
          await _connection.QueryAsync(query, new
          {
             userToken,
-            username
+            cpf
          });
       }
 
@@ -79,6 +79,16 @@ namespace NewBank.Infra.Repositories
             passwordHash,
             passwordSalt
          });
+      }
+
+      public async Task<User> GetUserByCpf(string cpf)
+      {
+         var query = @"SELECT * FROM users where Cpf = @cpf";
+         var user = await _connection.QueryFirstAsync<User>(query, new
+         {
+            cpf
+         });
+         return user;
       }
    }
 }
