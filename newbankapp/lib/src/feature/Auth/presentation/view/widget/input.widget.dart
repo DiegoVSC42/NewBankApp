@@ -55,17 +55,15 @@ class _InputState extends State<Input> {
               fontSize: 20,
               fontFamily: "Big Shoulders Display",
             ),
-            // onTap: () async {
-            //   _hintMode(widget.label);
-            // },
-            validator: (value) {
+            onTap: () async {
+              _hintMode(widget.label);
+            },
+            validator: (String? value) {
               if (value == null || value.isEmpty) {
-                return "${widget.label} cannot be empty";
+                return "field".i18n() + widget.label + "cannot_be_null".i18n();
+              } else if (!validators(value, widget.regex)) {
+                return "format_of".i18n() + widget.label + "invalid".i18n();
               }
-              if (widget.regex.hasMatch(value)) {
-                return null;
-              }
-              return "${widget.label} format mismatch";
             },
             obscureText: widget.obscureText,
           ),
@@ -74,57 +72,65 @@ class _InputState extends State<Input> {
     );
   }
 
-  // void _hintMode(String text) {
-  //   String hintReturn = "";
-  //   print(text);
-  //   switch (text) {
-  //     case "Firstname":
-  //       {
-  //         hintReturn = "firstname_ht_sup".i18n();
-  //         _updateHint(hintReturn);
-  //       }
-  //       break;
-  //     case "Lastname":
-  //       {
-  //         hintReturn = "lastname_ht_sup".i18n();
-  //         _updateHint(hintReturn);
-  //       }
-  //       break;
-  //     case "CPF":
-  //       {
-  //         hintReturn = "CPF_ht".i18n();
-  //         _updateHint(hintReturn);
-  //       }
-  //       break;
-  //     case "Username":
-  //       {
-  //         hintReturn = "username_ht_sup".i18n();
-  //         _updateHint(hintReturn);
-  //       }
-  //       break;
-  //     case "Password":
-  //       {
-  //         hintReturn = "password_ht_sup".i18n();
-  //         _updateHint(hintReturn);
-  //       }
-  //       break;
-  //     case "E-mail":
-  //       {
-  //         hintReturn = "email_ht".i18n();
-  //         _updateHint(hintReturn);
-  //       }
-  //       break;
-  //     case "Phone":
-  //       {
-  //         hintReturn = "phone_ht".i18n();
-  //         _updateHint(hintReturn);
-  //       }
-  //   }
-  // }
+  void _hintMode(String text) {
+    String hintReturn = "";
+    print(text);
+    switch (text) {
+      case "Firstname":
+        {
+          hintReturn = "firstname_ht_sup".i18n();
+          _updateHint(hintReturn);
+        }
+        break;
+      case "Lastname":
+        {
+          hintReturn = "lastname_ht_sup".i18n();
+          _updateHint(hintReturn);
+        }
+        break;
+      case "CPF":
+        {
+          hintReturn = "CPF_ht".i18n();
+          _updateHint(hintReturn);
+        }
+        break;
+      case "Username":
+        {
+          hintReturn = "username_ht_sup".i18n();
+          _updateHint(hintReturn);
+        }
+        break;
+      case "Password":
+        {
+          hintReturn = "password_ht_sup".i18n();
+          _updateHint(hintReturn);
+        }
+        break;
+      case "E-mail":
+        {
+          hintReturn = "email_ht".i18n();
+          _updateHint(hintReturn);
+        }
+        break;
+      case "Phone":
+        {
+          hintReturn = "phone_ht".i18n();
+          _updateHint(hintReturn);
+        }
+    }
+  }
 
-  // void _updateHint(String hintReturn) {
-  //   setState(() {
-  //     text = hintReturn;
-  //   });
-  // }
+  void _updateHint(String hintReturn) {
+    setState(() {
+      text = hintReturn;
+    });
+  }
+
+  bool validators(var value, RegExp exp) {
+    Iterable<Match> matches = exp.allMatches(value);
+    if (matches.isEmpty) {
+      return false;
+    }
+    return true;
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 import 'screens/cards.dart';
 import 'screens/home.dart';
@@ -43,11 +44,19 @@ class _HomePageState extends State<HomePage> {
         showSelectedLabels: false,
         showUnselectedLabels: true,
         onTap: _navigateBottomNavBar,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.pix), label: 'Transações'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.credit_card), label: 'Cartões'),
+            icon: Icon(Icons.pix),
+            label: 'transaction'.i18n(),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'home'.i18n(),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.credit_card),
+            label: 'cards'.i18n(),
+          ),
         ],
       ),
     );

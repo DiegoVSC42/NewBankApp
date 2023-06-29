@@ -11,5 +11,15 @@ class HomeModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute('/', child: (_, __) => const OnboardingScreen()),
+        //TODO CHAMAR ONBOARDING SCREEN
+        //   ChildRoute(
+        //     '/',
+        //     child: (_, __) => HomePage(
+        //         firstName: "Diego",
+        //         lastName: "Vieira",
+        //         balance: 10000,
+        //         userToken: "a"),
+        //   ),
+        // ];
       ];
 }
