@@ -2,6 +2,7 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+//import 'package:newbankapp/src/feature/home/presentation/view/page/screens/cards.dart';
 import 'newbank_appbar.dart';
 
 class FormCard extends StatefulWidget {
@@ -48,6 +49,77 @@ class _FormCardPageState extends State<FormCard> {
                   },
                   //Parte da Frente
                   front: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        // Parte da frente do cartão
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15)),
+                          width: 100,
+                          height: 230,
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                bottom: 10,
+                                right: 25,
+                                child: Container(
+                                  width: 60,
+                                  height: 60,
+                                  child: Image.asset(
+                                    "lib/assets/images/visa-logo.png",
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                top: 20,
+                                right: 10,
+                                child: Container(
+                                  width: 60,
+                                  height: 60,
+                                  child: const Text(
+                                    "12/50",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 15),
+                                  ),
+                                ),
+                              ),
+                              const Positioned(
+                                top: 20,
+                                left: 25,
+                                child: Text(
+                                  "NEW BANK",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                              ),
+                              const Positioned(
+                                bottom: 55,
+                                left: 25,
+                                child: Text(
+                                  "1234   XXXX   XXXX   XXXX",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 17.5),
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 20,
+                                left: 25,
+                                child: Text(
+                                  "NAME TEST CARD",
+                                  style: TextStyle(
+                                      color: Colors.grey[200], fontSize: 14.5),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )),
+                  //
+                  // Parte de Trás
+                  back: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: Card(
                       elevation: 4.0,
@@ -56,19 +128,68 @@ class _FormCardPageState extends State<FormCard> {
                       ),
                       child: Container(
                         height: 230,
-                      ),
-                    ),
-                  ),
-                  // Parte de Trás
-                  back: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Card(
-                      elevation: 4.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Container(
-                        height: 230,
+                        child: Stack(
+                          // Pilha para os cartões
+                          children: [
+                            // Texto do Topo de cada cartão
+                            const Positioned(
+                              top: 20,
+                              left: 25,
+                              child: Text(
+                                "LOST OR STOLEN, RETURN TO ANY BRANCH OF YOUR BANK.",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 11.0), // Estilo do texto do topo
+                              ),
+                            ),
+
+                            // Faixa preta do cartão
+                            Positioned(
+                              top: 45,
+                              left: 0,
+                              child: Container(
+                                width: 400,
+                                height: 40,
+                                color: Colors.black,
+                              ),
+                            ),
+                            // Faixa Branca do cartão
+                            Positioned(
+                              top: 100,
+                              left: 10,
+                              right: 50,
+                              child: Container(
+                                width: 10,
+                                height: 40,
+                                color: Colors.white,
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    child: const Padding(
+                                      padding: EdgeInsets.only(right: 7),
+                                      child: Text(
+                                        "XXX",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12.25),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            // Parte Inferior
+                            const Positioned(
+                              bottom: 20,
+                              left: 25,
+                              child: Text(
+                                "ISSUED BY NEW BANK.",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12.25),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   )),

@@ -84,7 +84,7 @@ class UserCards extends StatelessWidget {
                 end: Alignment.bottomCenter,
                 colors: <Color>[color1, color2]),
             borderRadius: BorderRadius.circular(15)),
-        width: 100,
+        width: (MediaQuery.of(context).size.width) - 50,
         height: 230,
         child: Stack(
           children: [
@@ -211,7 +211,7 @@ class UserCards extends StatelessWidget {
               bottom: 20,
               left: 25,
               child: Text(
-                "ISSUED BY YOUR BANK.",
+                "ISSUED BY NEW BANK.",
                 style: TextStyle(color: Colors.white, fontSize: 12.25),
               ),
             ),
