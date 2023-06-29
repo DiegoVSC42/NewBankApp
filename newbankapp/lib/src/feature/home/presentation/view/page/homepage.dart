@@ -6,16 +6,7 @@ import 'screens/home.dart';
 import 'screens/transations.dart';
 
 class HomePage extends StatefulWidget {
-  var firstName = "";
-  var lastName = "";
-  var balance = 0;
-  var userToken = "";
-
-  HomePage({
-    required this.firstName,
-    required this.lastName,
-    required this.balance,
-    required this.userToken,
+  const HomePage({
     super.key,
   });
 
@@ -28,12 +19,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     const UserTransations(),
-    UserHome(
-      balance: 0,
-      lastName: '',
-      firstName: '',
-      userToken: '',
-    ),
+    UserHome(),
     const UserCards(),
   ];
 
@@ -45,12 +31,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final userHomeWidget = UserHome(
-      balance: widget.balance,
-      lastName: widget.lastName,
-      firstName: widget.firstName,
-      userToken: widget.userToken,
-    );
+    final userHomeWidget = UserHome();
 
     _pages[1] = userHomeWidget;
 

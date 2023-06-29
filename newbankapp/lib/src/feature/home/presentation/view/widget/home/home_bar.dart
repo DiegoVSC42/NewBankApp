@@ -33,7 +33,7 @@ PreferredSizeWidget HomeBar(Svg image, String username) {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "hello".i18n() + " " + username,
                   style: const TextStyle(

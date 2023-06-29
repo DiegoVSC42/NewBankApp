@@ -1,5 +1,7 @@
+drop table users;
+
 create table if not exists Users(
-	Id serial primary key,
+	Id int generated always as identity primary key,
 	FirstName varchar(255) not null,
 	LastName varchar(255) not null,
 	Cpf varchar(13) unique not null,

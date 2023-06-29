@@ -1,18 +1,23 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:newbankapp/src/store/user_store.dart';
+import 'package:provider/provider.dart';
 import 'package:newbankapp/services/prefs_service.dart';
 import 'package:newbankapp/src/feature/home/home_module.dart';
 
+import '../../../../../model/user.dart';
 import '../../../../home/presentation/view/page/homepage.dart';
+import '../../../data/dto/login_dto.dart';
 
 class LoginButton extends StatefulWidget {
-  var username = "";
+  var cpf = "";
   var password = "";
 
   LoginButton({
-    required this.username,
+    required this.cpf,
     required this.password,
     super.key,
   });
@@ -22,28 +27,24 @@ class LoginButton extends StatefulWidget {
 }
 
 class _LoginButtonState extends State<LoginButton> {
-  void login() async {
-    print("logando usuário");
-    var url = Uri.parse('https://10.0.2.2:7242/api/Auth/login');
+  void login(BuildContext context) async {
+    var request = LoginDto(widget.cpf, widget.password);
 
-    var response = await http.post(url,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: json.encode(
-            {'username': widget.username, 'password': widget.password}));
+    final response = await Dio().post(
+      'https://10.0.2.2:7242/api/Auth/login',
+      data: request.toJson(),
+    );
 
     if (response.statusCode == 200) {
-      var user = jsonDecode(response.body);
-      print("Nome Completo: " + user['firstame'] + " " + user['lastName']);
-      print("Saldo: ");
-      print(user['balance']);
-      print("UserToken: " + user['userToken']);
-      navigate(user['firstame'], user['lastName'], user['balance'],
-          user['userToken']);
-      PrefsService.save(widget.username);
+      final user = User.fromJson(response.data.toString());
+      // Provider.of<UserStore>(context, listen: false).setLoginResponse(user);
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
     } else {
-      print(response.body);
+      throw Exception("Usuário ou Senha Inválidos!");
     }
   }
 
@@ -51,24 +52,19 @@ class _LoginButtonState extends State<LoginButton> {
       String firstName, String lastName, int balance, String userToken) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-          builder: (context) => HomePage(
-                balance: balance,
-                firstName: firstName,
-                lastName: lastName,
-                userToken: '',
-              )),
+      MaterialPageRoute(builder: (context) => HomePage()),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: login,
+      onPressed: () => {login(context)},
+      style: ButtonStyle(
+          minimumSize: MaterialStateProperty.all(const Size(240, 40))),
       child: const Text(
         "Login",
       ),
-      style: ButtonStyle(minimumSize: MaterialStateProperty.all(Size(240, 40))),
     );
   }
 }

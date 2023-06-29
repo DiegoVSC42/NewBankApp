@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'app_module.dart';
 import 'app_widget.dart';
 
@@ -12,6 +10,8 @@ void main() async {
   bool firstTime = await shouldShowOnboarding();
 
   HttpOverrides.global = MyHttpOverrides();
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
     ModularApp(
       module: AppModule(firstTime: firstTime),

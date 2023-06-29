@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
 import 'package:newbankapp/src/component/newbank_box_card.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../../../store/user_store.dart';
+import '../../../../../home/presentation/view/page/homepage.dart';
 import '../../widget/input.widget.dart';
 
 class SignUp extends StatefulWidget {
@@ -13,25 +16,39 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  // VERIFIQUE REGEX EM
-  // https://regexr.com/
-
+  final _formKey = GlobalKey<FormState>();
   var firstNameTec = TextEditingController();
-
   var lastNameTec = TextEditingController();
-
   var cpfTec = TextEditingController();
-
   var emailTec = TextEditingController();
-
   var phoneTec = TextEditingController();
-
   var usernameTec = TextEditingController();
-
-  // Minimum eight characters, at least one letter, one number and one special character:
   var passwordTec = TextEditingController();
 
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  Future<void> registerUser() async {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    try {
+      UserStore userStore = Provider.of<UserStore>(context, listen: false);
+
+      await userStore.register(firstNameTec.text, lastNameTec.text, cpfTec.text,
+          emailTec.text, phoneTec.text, passwordTec.text);
+
+      if (context.mounted) navigate();
+      const Text('Cadastro feito com sucesso!');
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  void navigate() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +58,7 @@ class _SignUpState extends State<SignUp> {
       ),
       body: NewBankBoxCard(
         boxContent: Form(
-          key: formKey,
+          key: _formKey,
           child: ListView(
             children: [
               Padding(
@@ -104,15 +121,6 @@ class _SignUpState extends State<SignUp> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Input(
-                  label: "username_sup".i18n(),
-                  ctrl: usernameTec,
-                  regex: RegExp(r'\w{4,}'),
-                  obscureText: false,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Input(
                   label: "password_sup".i18n(),
                   ctrl: passwordTec,
                   regex: RegExp(
@@ -123,9 +131,7 @@ class _SignUpState extends State<SignUp> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
-                  onPressed: () {
-                    formKey.currentState?.validate();
-                  },
+                  onPressed: registerUser,
                   child: Text(
                     "sign_up_sup".i18n(),
                   ),

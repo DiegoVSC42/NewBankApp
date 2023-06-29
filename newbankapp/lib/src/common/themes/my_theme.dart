@@ -6,7 +6,7 @@ ThemeData Mytheme = ThemeData(
   primarySwatch: ThemeColors.primaryColor,
   brightness: Brightness.dark,
   fontFamily: "Raleway",
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     bodySmall: TextStyle(
       fontSize: 16,
     ),

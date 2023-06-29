@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
-import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_box_card.dart';
 import 'package:newbankapp/src/feature/home/presentation/view/widget/home/account_balance.dart';
 import 'package:newbankapp/src/feature/home/presentation/view/widget/home/drawer/home_drawer.dart';
@@ -8,18 +7,11 @@ import 'package:newbankapp/src/feature/home/presentation/view/widget/home/invest
 import 'package:newbankapp/src/feature/home/presentation/view/widget/home/retrieve_value.dart';
 import 'package:newbankapp/src/feature/home/presentation/view/widget/home/saved_value.dart';
 import 'package:newbankapp/src/feature/home/presentation/view/widget/home/home_bar.dart';
+import 'package:newbankapp/src/store/user_store.dart';
+import 'package:provider/provider.dart';
 
 class UserHome extends StatefulWidget {
-  var firstName = "";
-  var lastName = "";
-  var balance = 0;
-  var userToken = "";
-
-  UserHome({
-    required this.firstName,
-    required this.lastName,
-    required this.balance,
-    required this.userToken,
+  const UserHome({
     super.key,
   });
 
@@ -35,12 +27,14 @@ class _UserHomeState extends State<UserHome> {
 
   @override
   Widget build(BuildContext context) {
+    final userStore = Provider.of<UserStore>(context, listen: false);
+
     String showedVaultValue = (vaultValue).toStringAsFixed(2);
     return Scaffold(
       appBar: HomeBar(
         //TODO colocar valor do backend
         Svg("lib/assets/images/user_placeholder.svg"),
-        "user",
+        "${userStore.user.firstName} ${userStore.user.lastName}",
       ),
       body: ListView(
         scrollDirection: Axis.vertical,

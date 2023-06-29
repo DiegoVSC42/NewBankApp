@@ -12,6 +12,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  mobx:
+  flutter_mobx:
+  provider:
   cupertino_icons: ^1.0.2
   localization: ^2.1.0
   flutter_svg_provider: ^1.0.3
@@ -26,6 +29,8 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
+  mobx_codegen:
+  build_runner:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0

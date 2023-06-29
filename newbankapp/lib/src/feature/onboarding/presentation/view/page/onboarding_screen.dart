@@ -2,10 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:newbankapp/services/prefs_service.dart';
 import 'package:newbankapp/src/feature/auth/presentation/view/page/screens/auth.dart';
 import 'package:localization/localization.dart';
-import 'package:newbankapp/src/feature/home/presentation/view/page/homepage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // StatefulWidget
@@ -87,7 +85,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               Center(
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "phrase_ob3".i18n(),
                     style: const TextStyle(
@@ -135,18 +133,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
       nextFlex: 1, // Posição de quando aperta em Próximo
       // Botão de Pular
-      skip: CupertinoButton(
-        onPressed: () {
-          openAuthScreen(context);
-          _skipOnboarding();
-        },
-        child: Text('skip'.i18n(),
-            style: const TextStyle(
-              fontWeight: FontWeight.w800,
-              color: Colors.white,
-            )),
-      ),
-
+      skip: Text('skip'.i18n(),
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+          )),
       // Botão de Voltar
       back: Text('back'.i18n(),
           style: const TextStyle(
@@ -183,26 +174,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
 //Criar uma função para abrir a tela inicial, mesma função para chamar no botão pular
 void openAuthScreen(BuildContext context) {
-  Future.wait([
-    PrefsService.isAuth(),
-    // Future.delayed(Duration(seconds: 3)),
-  ]).then(
-    (value) => value[0]
-        ? Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => HomePage(
-                    firstName: "firstname",
-                    lastName: "lastname",
-                    balance: 2048,
-                    userToken: "teste")),
-          )
-        : Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Auth(),
-            ),
-          ),
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Auth()),
   );
 }
 

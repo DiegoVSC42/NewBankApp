@@ -8,97 +8,97 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace NewBank.Domain.Services
 {
-    public class UserService : IUserService
-    {
+   public class UserService : IUserService
+   {
 
-        public IAuthService _authService { get; set; }
-        public IUserRepository _userRepository { get; set; }
-        
-        public UserService(IAuthService authService, IUserRepository userRepository)
-        {
-            _authService = authService;
-            _userRepository = userRepository;
-        }
+      public IAuthService _authService { get; set; }
+      public IUserRepository _userRepository { get; set; }
 
-        public async Task<UserResponse> Login(UserLoginRequest request)
-        {
-            var user = await _userRepository.GetUser(request.Username);
+      public UserService(IAuthService authService, IUserRepository userRepository)
+      {
+         _authService = authService;
+         _userRepository = userRepository;
+      }
 
-            if (user is null)
-            {
-                throw new Exception("Usuário não encontrado!");
-            }
+      public async Task<UserResponse> Login(UserLoginRequest request)
+      {
+         var user = await _userRepository.GetUserByCpf(request.Cpf);
 
-            if (!_authService.VerifyPassswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
-            {
-                throw new Exception("Senha incorreta!");
-            }
+         if (user is null)
+         {
+            throw new Exception("Usuário não encontrado!");
+         }
 
-            try
-            {
-                var userToken = _authService.CreateToken(user);
-                await _userRepository.AssignToken(request.Username, userToken);
-                user.UserToken = userToken;
-                return user.ToUserResponse();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
+         if (!_authService.VerifyPassswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
+         {
+            throw new Exception("Senha incorreta!");
+         }
 
-        public async Task<UserResponse> Register(UserRegisterRequest request)
-        {
-            try
-            {
-                request.Validate();
+         try
+         {
+            var userToken = _authService.CreateToken(user);
+            await _userRepository.AssignToken(request.Cpf, userToken);
+            user.UserToken = userToken;
+            return user.ToUserResponse();
+         }
+         catch (Exception ex)
+         {
+            throw;
+         }
+      }
 
-                _authService.CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalet);
-                
-                var user = request.ToUser();
-                user.PasswordHash = passwordHash;
-                user.PasswordSalt = passwordSalet;
-                user.Balance = 0;
-                user.UserToken = _authService.CreateToken(user);
+      public async Task<UserResponse> Register(UserRegisterRequest request)
+      {
+         try
+         {
+            request.Validate();
 
-                await _userRepository.CreateUser(user);
+            _authService.CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalet);
 
-                return user.ToUserResponse() ;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
+            var user = request.ToUser();
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalet;
+            user.Balance = 0;
+            user.UserToken = _authService.CreateToken(user);
+            var id = await _userRepository.CreateUser(user);
+            user.Id = id;
 
-        public async Task Logout(string username)
-        {
-            //validar a request aqui
+            return user.ToUserResponse();
+         }
+         catch (Exception ex)
+         {
+            throw;
+         }
+      }
 
-            var user = await _userRepository.GetUser(username);
+      public async Task Logout(string username)
+      {
+         //validar a request aqui
 
-            if(user is null)
-                throw new Exception("Usuário não encontrado!");
+         var user = await _userRepository.GetUser(username);
 
-            if (String.IsNullOrEmpty(user.UserToken))
-                throw new Exception("Usuário não está logado!");
+         if (user is null)
+            throw new Exception("Usuário não encontrado!");
 
-            await _userRepository.Logout(username);
+         if (String.IsNullOrEmpty(user.UserToken))
+            throw new Exception("Usuário não está logado!");
 
-        }
+         await _userRepository.Logout(username);
 
-        public async Task ResetPassword(UserResetPasswordRequest request)
-        {
-            //validar a request aqui
+      }
 
-            var user = await _userRepository.GetUser(request.Username);
+      public async Task ResetPassword(UserResetPasswordRequest request)
+      {
+         //validar a request aqui
 
-            if (user is null)
-                throw new Exception("Usuário não encontrado!");
+         var user = await _userRepository.GetUser(request.Username);
 
-            _authService.CreatePasswordHash(request.NewPassword, out byte[] passwordHash, out byte[] passwordSalet);
+         if (user is null)
+            throw new Exception("Usuário não encontrado!");
 
-            await _userRepository.ResetPassword(request.Username, passwordHash, passwordSalet);
-        }
-    }
+         _authService.CreatePasswordHash(request.NewPassword, out byte[] passwordHash, out byte[] passwordSalet);
+
+         await _userRepository.ResetPassword(request.Username, passwordHash, passwordSalet);
+      }
+   }
 }

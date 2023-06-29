@@ -91,7 +91,7 @@ class UserCards extends StatelessWidget {
             Positioned(
               bottom: 10,
               right: 25,
-              child: Container(
+              child: SizedBox(
                 width: 60,
                 height: 60,
                 child: Image.asset(
@@ -99,13 +99,13 @@ class UserCards extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               top: 20,
               right: 10,
-              child: Container(
+              child: SizedBox(
                 width: 60,
                 height: 60,
-                child: const Text(
+                child: Text(
                   "12/50",
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
