@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
-import 'package:http/http.dart' as http;
 import 'package:newbankapp/src/component/newbank_box_card.dart';
 
 import 'package:newbankapp/src/feature/Auth/presentation/view/widget/login_button.widget.dart';
@@ -14,7 +13,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  var usernameCtrl = TextEditingController();
+  var cpfCtrl = TextEditingController();
   var username = "";
   var password = "";
   var passwordCtrl = TextEditingController();
@@ -36,7 +35,7 @@ class _LoginState extends State<Login> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     TextFormField(
-                      controller: usernameCtrl,
+                      controller: cpfCtrl,
                       onChanged: (value) {
                         setState(() {
                           username = value;
@@ -70,12 +69,12 @@ class _LoginState extends State<Login> {
                       },
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock,
                           color: Colors.white,
                         ),
                         labelText: "password_lgn".i18n(),
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
@@ -86,7 +85,7 @@ class _LoginState extends State<Login> {
                       obscuringCharacter: "•",
                     ),
                     LoginButton(
-                      username: usernameCtrl.text,
+                      cpf: cpfCtrl.text,
                       password: passwordCtrl.text,
                     ),
                   ],

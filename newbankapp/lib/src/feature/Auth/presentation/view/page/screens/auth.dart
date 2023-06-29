@@ -37,7 +37,8 @@ class Auth extends StatelessWidget {
                       );
                     },
                     style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all(Size(240, 40))),
+                        minimumSize:
+                            MaterialStateProperty.all(const Size(240, 40))),
                     child: const Text(
                       "Login",
                     ),
@@ -57,7 +58,8 @@ class Auth extends StatelessWidget {
                       );
                     },
                     style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all(Size(240, 40))),
+                        minimumSize:
+                            MaterialStateProperty.all(const Size(240, 40))),
                     child: Text(
                       "sign_up".i18n(),
                     ),
@@ -73,13 +75,7 @@ class Auth extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => HomePage(
-                        balance: 0,
-                        firstName: '',
-                        lastName: '',
-                        userToken: '',
-                      )),
+              MaterialPageRoute(builder: (context) => HomePage()),
             );
           }),
     );

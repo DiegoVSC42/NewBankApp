@@ -55,9 +55,9 @@ class _InputState extends State<Input> {
               fontSize: 20,
               fontFamily: "Big Shoulders Display",
             ),
-            onTap: () async {
-              _hintMode(widget.label);
-            },
+            // onTap: () async {
+            //   _hintMode(widget.label);
+            // },
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return "${widget.label} cannot be empty";
@@ -74,57 +74,57 @@ class _InputState extends State<Input> {
     );
   }
 
-  void _hintMode(String text) {
-    String hintReturn = "";
-    print(text);
-    switch (text) {
-      case "Firstname":
-        {
-          hintReturn = "firstname_ht_sup".i18n();
-          _updateHint(hintReturn);
-        }
-        break;
-      case "Lastname":
-        {
-          hintReturn = "lastname_ht_sup".i18n();
-          _updateHint(hintReturn);
-        }
-        break;
-      case "CPF":
-        {
-          hintReturn = "CPF_ht".i18n();
-          _updateHint(hintReturn);
-        }
-        break;
-      case "Username":
-        {
-          hintReturn = "username_ht_sup".i18n();
-          _updateHint(hintReturn);
-        }
-        break;
-      case "Password":
-        {
-          hintReturn = "password_ht_sup".i18n();
-          _updateHint(hintReturn);
-        }
-        break;
-      case "E-mail":
-        {
-          hintReturn = "email_ht".i18n();
-          _updateHint(hintReturn);
-        }
-        break;
-      case "Phone":
-        {
-          hintReturn = "phone_ht".i18n();
-          _updateHint(hintReturn);
-        }
-    }
-  }
+  // void _hintMode(String text) {
+  //   String hintReturn = "";
+  //   print(text);
+  //   switch (text) {
+  //     case "Firstname":
+  //       {
+  //         hintReturn = "firstname_ht_sup".i18n();
+  //         _updateHint(hintReturn);
+  //       }
+  //       break;
+  //     case "Lastname":
+  //       {
+  //         hintReturn = "lastname_ht_sup".i18n();
+  //         _updateHint(hintReturn);
+  //       }
+  //       break;
+  //     case "CPF":
+  //       {
+  //         hintReturn = "CPF_ht".i18n();
+  //         _updateHint(hintReturn);
+  //       }
+  //       break;
+  //     case "Username":
+  //       {
+  //         hintReturn = "username_ht_sup".i18n();
+  //         _updateHint(hintReturn);
+  //       }
+  //       break;
+  //     case "Password":
+  //       {
+  //         hintReturn = "password_ht_sup".i18n();
+  //         _updateHint(hintReturn);
+  //       }
+  //       break;
+  //     case "E-mail":
+  //       {
+  //         hintReturn = "email_ht".i18n();
+  //         _updateHint(hintReturn);
+  //       }
+  //       break;
+  //     case "Phone":
+  //       {
+  //         hintReturn = "phone_ht".i18n();
+  //         _updateHint(hintReturn);
+  //       }
+  //   }
+  // }
 
-  void _updateHint(String hintReturn) {
-    setState(() {
-      text = hintReturn;
-    });
-  }
+  // void _updateHint(String hintReturn) {
+  //   setState(() {
+  //     text = hintReturn;
+  //   });
+  // }
 }

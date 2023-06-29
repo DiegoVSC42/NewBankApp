@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O86mhTRSQmA8we3JLZOt6oFB1GJ48hlio7YOp4S55tpdvKDMnAxd4vRlIHpQQk7f726ufLnX6o08swRfbBnmyg==",
+  "dgSpecHash": "BltH0AgH4pGWmFvbXxNW0bNNB6PFKXPGJmqzNz2mkAjcW+zJbIBFvsCTEfbFxJLT5Q6Rqw7wV9IYq1C+KpTWuQ==",
   "success": true,
   "projectFilePath": "C:\\dev\\personal\\iesb\\pdm\\NewBankApp\\NewBankApi\\NewBank.Infra\\NewBank.Infra.csproj",
   "expectedPackageFiles": [

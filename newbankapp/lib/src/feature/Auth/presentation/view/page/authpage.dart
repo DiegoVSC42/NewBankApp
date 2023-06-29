@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:newbankapp/src/feature/auth/presentation/view/page/screens/auth.dart';
-import 'package:newbankapp/src/feature/auth/presentation/view/page/screens/login.dart';
-import 'package:newbankapp/src/feature/auth/presentation/view/page/screens/signup.dart';
 
 class AuthPage extends StatefulWidget {
+  const AuthPage({super.key});
+
   @override
   State<AuthPage> createState() => _AuthPageState();
 }
@@ -11,7 +11,7 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Auth(),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:newbankapp/src/component/newbank_appbar.dart';
-import 'package:newbankapp/src/component/newbank_box_card.dart';
 
 class UserCards extends StatelessWidget {
   const UserCards({super.key});
@@ -29,25 +28,25 @@ class UserCards extends StatelessWidget {
                     child: Container(
                       width: 80,
                       height: 80,
-                      child: Icon(Icons.lock_outline),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.grey.withOpacity(.5),
                       ),
+                      child: const Icon(Icons.lock_outline),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Text("Cartão Virtual não gerado"),
                   )
                 ],
               ),
             ),
           ),
-          buildPaymentCardWidget(context, Color(0xF25FFFFF), Color(0xFF2508FF)),
-          buildPaymentCardWidget(context, Color(0xFFFF9800), Color(0xFF9C2700)),
-          buildPaymentCardWidget(context, Color(0xFF76FF03), Color(0xFF9C27B0)),
-          buildPaymentCardWidget(context, Color(0xFF76FF03), Color(0xFF9C27B0)),
+          buildPaymentCardWidget(context, const Color(0xF25FFFFF), const Color(0xFF2508FF)),
+          buildPaymentCardWidget(context, const Color(0xFFFF9800), const Color(0xFF9C2700)),
+          buildPaymentCardWidget(context, const Color(0xFF76FF03), const Color(0xFF9C27B0)),
+          buildPaymentCardWidget(context, const Color(0xFF76FF03), const Color(0xFF9C27B0)),
         ]),
       ),
     );
@@ -82,7 +81,7 @@ class UserCards extends StatelessWidget {
             Positioned(
               bottom: 10,
               right: 25,
-              child: Container(
+              child: SizedBox(
                 width: 60,
                 height: 60,
                 child: Image.asset(
@@ -90,13 +89,13 @@ class UserCards extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               top: 20,
               right: 10,
-              child: Container(
+              child: SizedBox(
                 width: 60,
                 height: 60,
-                child: const Text(
+                child: Text(
                   "12/50",
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),

@@ -73,7 +73,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               Center(
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "phrase_ob3".i18n(),
                     style: const TextStyle(
@@ -121,19 +121,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       nextFlex: 1, // Posição de quando aperta em Próximo
       // Botão de Pular
       skip: Text('skip'.i18n(),
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w800,
             color: Colors.white,
           )),
       // Botão de Voltar
       back: Text('back'.i18n(),
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w800,
             color: Colors.white,
           )),
       // Botão de Próximo
       next: Text('next'.i18n(),
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w800,
             color: Colors.white,
           )),
@@ -162,6 +162,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 void openAuthScreen(BuildContext context) {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => Auth()),
+    MaterialPageRoute(builder: (context) => const Auth()),
   );
 }

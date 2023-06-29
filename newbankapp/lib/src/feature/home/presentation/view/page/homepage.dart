@@ -5,16 +5,7 @@ import 'screens/home.dart';
 import 'screens/transations.dart';
 
 class HomePage extends StatefulWidget {
-  var firstName = "";
-  var lastName = "";
-  var balance = 0;
-  var userToken = "";
-
-  HomePage({
-    required this.firstName,
-    required this.lastName,
-    required this.balance,
-    required this.userToken,
+  const HomePage({
     super.key,
   });
 
@@ -27,12 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     const UserTransations(),
-    UserHome(
-      balance: 0,
-      lastName: '',
-      firstName: '',
-      userToken: '',
-    ),
+    UserHome(),
     const UserCards(),
   ];
 
@@ -44,50 +30,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final userHomeWidget = UserHome(
-      balance: widget.balance,
-      lastName: widget.lastName,
-      firstName: widget.firstName,
-      userToken: widget.userToken,
-    );
-
-    Future jwtFunc(
-        String firstName, String lastName, int balance, String userToken) {
-      return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text(
-              'JWT',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.indigo,
-              ),
-            ),
-            content: Text(
-              userToken,
-              style: const TextStyle(
-                color: Colors.black,
-              ),
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text(
-                  'OK',
-                  style: TextStyle(
-                    color: Colors.indigo,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
+    final userHomeWidget = UserHome();
 
     _pages[1] = userHomeWidget;
 

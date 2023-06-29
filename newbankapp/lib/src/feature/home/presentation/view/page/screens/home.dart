@@ -4,16 +4,16 @@ import 'package:newbankapp/src/component/newbank_box_card.dart';
 import 'package:newbankapp/src/feature/home/presentation/view/widget/new_bank_bar.dart';
 
 class UserHome extends StatefulWidget {
-  var firstName = "";
-  var lastName = "";
-  var balance = 0;
-  var userToken = "";
+  // var firstName = "";
+  // var lastName = "";
+  // var balance = 0;
+  // var userToken = "";
 
   UserHome({
-    required this.firstName,
-    required this.lastName,
-    required this.balance,
-    required this.userToken,
+    // required this.firstName,
+    // required this.lastName,
+    // required this.balance,
+    // required this.userToken,
     super.key,
   });
 

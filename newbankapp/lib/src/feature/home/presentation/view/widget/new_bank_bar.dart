@@ -34,7 +34,7 @@ PreferredSizeWidget homeBar() {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "hello".i18n(),
                   style: const TextStyle(
